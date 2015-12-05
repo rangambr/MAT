@@ -1,0 +1,80 @@
+{
+    "MATAppConstants.cls": {
+        "createdById": "00515000005zvs4AAA", 
+        "createdByName": "Certification Candidate", 
+        "createdDate": "2015-12-04 21:10:18", 
+        "fileName": "unpackaged/classes/MATAppConstants.cls", 
+        "fullName": "MATAppConstants", 
+        "id": "01pq00000000X3SAAU", 
+        "lastModifiedById": "00515000005zvs4AAA", 
+        "lastModifiedByName": "Certification Candidate", 
+        "lastModifiedDate": "2015-12-04 21:13:47", 
+        "mmState": "clean", 
+        "type": "ApexClass"
+    }, 
+    "MATAppSettings.cls": {
+        "createdById": "00515000005zvs4AAA", 
+        "createdByName": "Certification Candidate", 
+        "createdDate": "2015-12-05 14:56:17", 
+        "fileName": "unpackaged/classes/MATAppSettings.cls", 
+        "fullName": "MATAppSettings", 
+        "id": "01pq00000000XTGAA2", 
+        "lastModifiedById": "00515000005zvs4AAA", 
+        "lastModifiedByName": "Certification Candidate", 
+        "lastModifiedDate": "2015-12-05 15:49:12", 
+        "mmState": "clean", 
+        "type": "ApexClass"
+    }, 
+    "ReservationTrigger.trigger": {
+        "createdById": "00515000005zvs4AAA", 
+        "createdByName": "Certification Candidate", 
+        "createdDate": "2015-12-04 10:30:35", 
+        "fileName": "unpackaged/triggers/ReservationTrigger.trigger", 
+        "fullName": "ReservationTrigger", 
+        "id": "01qq00000008hvWAAQ", 
+        "lastModifiedById": "00515000005zvs4AAA", 
+        "lastModifiedByName": "Certification Candidate", 
+        "lastModifiedDate": "2015-12-05 19:55:21", 
+        "mmState": "clean", 
+        "type": "ApexTrigger"
+    }, 
+    "ReservationTriggerHelper.cls": {
+        "createdById": "00515000005zvs4AAA", 
+        "createdByName": "Certification Candidate", 
+        "createdDate": "2015-12-04 10:29:14", 
+        "fileName": "unpackaged/classes/ReservationTriggerHelper.cls", 
+        "fullName": "ReservationTriggerHelper", 
+        "id": "01pq0000000AnF8AAK", 
+        "lastModifiedById": "00515000005zvs4AAA", 
+        "lastModifiedByName": "Certification Candidate", 
+        "lastModifiedDate": "2015-12-05 19:57:47", 
+        "mmState": "clean", 
+        "type": "ApexClass"
+    }, 
+    "ReservationTriggerHelperTest.cls": {
+        "createdById": "00515000005zvs4AAA", 
+        "createdByName": "Certification Candidate", 
+        "createdDate": "2015-12-04 10:29:56", 
+        "fileName": "unpackaged/classes/ReservationTriggerHelperTest.cls", 
+        "fullName": "ReservationTriggerHelperTest", 
+        "id": "01pq0000000AnFDAA0", 
+        "lastModifiedById": "00515000005zvs4AAA", 
+        "lastModifiedByName": "Certification Candidate", 
+        "lastModifiedDate": "2015-12-05 18:04:20", 
+        "mmState": "clean", 
+        "type": "ApexClass"
+    }, 
+    "TestDataFactory.cls": {
+        "createdById": "00515000005zvs4AAA", 
+        "createdByName": "Certification Candidate", 
+        "createdDate": "2015-12-04 10:31:17", 
+        "fileName": "unpackaged/classes/TestDataFactory.cls", 
+        "fullName": "TestDataFactory", 
+        "id": "01pq0000000AnFNAA0", 
+        "lastModifiedById": "00515000005zvs4AAA", 
+        "lastModifiedByName": "Certification Candidate", 
+        "lastModifiedDate": "2015-12-05 17:59:50", 
+        "mmState": "clean", 
+        "type": "ApexClass"
+    }
+}

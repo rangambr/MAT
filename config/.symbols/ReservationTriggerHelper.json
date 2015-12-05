@@ -1,0 +1,365 @@
+{
+    "properties": [], 
+    "externalReferences": [], 
+    "innerClasses": [], 
+    "interfaces": [], 
+    "constructors": [], 
+    "namespace": null, 
+    "name": "ReservationTriggerHelper", 
+    "tableDeclaration": {
+        "type": "ReservationTriggerHelper", 
+        "modifiers": [
+            "public", 
+            "with sharing"
+        ], 
+        "references": [], 
+        "location": {
+            "column": 27, 
+            "line": 10
+        }, 
+        "name": "ReservationTriggerHelper"
+    }, 
+    "key": "01pq0000000AnF8AAK", 
+    "variables": [
+        {
+            "type": "Map", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 74, 
+                "line": 17
+            }, 
+            "name": "newMap"
+        }, 
+        {
+            "type": "Set", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 11, 
+                "line": 19
+            }, 
+            "name": "showTimesToRecalculate"
+        }, 
+        {
+            "type": "Map", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 20, 
+                "line": 21
+            }, 
+            "name": "referralsPerCampaign"
+        }, 
+        {
+            "type": "Reservation__c", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 22, 
+                "line": 23
+            }, 
+            "name": "reservation"
+        }, 
+        {
+            "type": "Map", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 74, 
+                "line": 50
+            }, 
+            "name": "newMap"
+        }, 
+        {
+            "type": "Map", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 106, 
+                "line": 50
+            }, 
+            "name": "oldMap"
+        }, 
+        {
+            "type": "Set", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 11, 
+                "line": 52
+            }, 
+            "name": "showTimesToRecalculate"
+        }, 
+        {
+            "type": "Map", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 20, 
+                "line": 53
+            }, 
+            "name": "referralsPerCampaignToAdd"
+        }, 
+        {
+            "type": "Map", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 20, 
+                "line": 54
+            }, 
+            "name": "referralsPerCampaignToRemove"
+        }, 
+        {
+            "type": "Reservation__c", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 22, 
+                "line": 56
+            }, 
+            "name": "newReservation"
+        }, 
+        {
+            "type": "Set", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 57, 
+                "line": 91
+            }, 
+            "name": "showTimeIds"
+        }, 
+        {
+            "type": "LIST", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 22, 
+                "line": 94
+            }, 
+            "name": "showTimesToUpdate"
+        }, 
+        {
+            "type": "LIST", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 22, 
+                "line": 96
+            }, 
+            "name": "reservationsByShowTime"
+        }, 
+        {
+            "type": "AggregateResult", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 25, 
+                "line": 100
+            }, 
+            "name": "reservationByShowTime"
+        }, 
+        {
+            "type": "Map", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 67, 
+                "line": 118
+            }, 
+            "name": "referralsPerCampaignToAdd"
+        }, 
+        {
+            "type": "Map", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 20, 
+                "line": 119
+            }, 
+            "name": "referralsPerCampaignToRemove"
+        }, 
+        {
+            "type": "Set", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 11, 
+                "line": 122
+            }, 
+            "name": "campaignIdsToUpdate"
+        }, 
+        {
+            "type": "LIST", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 19, 
+                "line": 127
+            }, 
+            "name": "campaignsToUpdate"
+        }, 
+        {
+            "type": "Campaign", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 17, 
+                "line": 131
+            }, 
+            "name": "campaignToUpdate"
+        }, 
+        {
+            "type": "Decimal", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 13, 
+                "line": 133
+            }, 
+            "name": "totalReferrals"
+        }, 
+        {
+            "type": "Map", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 81, 
+                "line": 154
+            }, 
+            "name": "referralsPerCampaign"
+        }, 
+        {
+            "type": "Id", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 106, 
+                "line": 154
+            }, 
+            "name": "campaignId"
+        }
+    ], 
+    "id": "01pq0000000AnF8AAK", 
+    "methods": [
+        {
+            "modifiers": [
+                "static", 
+                "public"
+            ], 
+            "name": "calculateRevenueAndReferrals", 
+            "parameters": [
+                {
+                    "type": "Map", 
+                    "name": "newMap"
+                }
+            ], 
+            "visibility": "PUBLIC", 
+            "references": [], 
+            "location": {
+                "column": 21, 
+                "line": 17
+            }, 
+            "returnType": "void", 
+            "type": null
+        }, 
+        {
+            "modifiers": [
+                "static", 
+                "public"
+            ], 
+            "name": "calculateRevenueAndReferrals", 
+            "parameters": [
+                {
+                    "type": "Map", 
+                    "name": "newMap"
+                }, 
+                {
+                    "type": "Map", 
+                    "name": "oldMap"
+                }
+            ], 
+            "visibility": "PUBLIC", 
+            "references": [], 
+            "location": {
+                "column": 21, 
+                "line": 50
+            }, 
+            "returnType": "void", 
+            "type": null
+        }, 
+        {
+            "modifiers": [
+                "private", 
+                "static"
+            ], 
+            "name": "reCalculateShowTimeRevenue", 
+            "parameters": [
+                {
+                    "type": "Set", 
+                    "name": "showTimeIds"
+                }
+            ], 
+            "visibility": "PRIVATE", 
+            "references": [], 
+            "location": {
+                "column": 22, 
+                "line": 91
+            }, 
+            "returnType": "void", 
+            "type": null
+        }, 
+        {
+            "modifiers": [
+                "private", 
+                "static"
+            ], 
+            "name": "setupTotalNumberofReferrals", 
+            "parameters": [
+                {
+                    "type": "Map", 
+                    "name": "referralsPerCampaignToAdd"
+                }, 
+                {
+                    "type": "Map", 
+                    "name": "referralsPerCampaignToRemove"
+                }
+            ], 
+            "visibility": "PRIVATE", 
+            "references": [], 
+            "location": {
+                "column": 22, 
+                "line": 118
+            }, 
+            "returnType": "void", 
+            "type": null
+        }, 
+        {
+            "modifiers": [
+                "private", 
+                "static"
+            ], 
+            "name": "incrementReferralsPerCampaign", 
+            "parameters": [
+                {
+                    "type": "Map", 
+                    "name": "referralsPerCampaign"
+                }, 
+                {
+                    "type": "Id", 
+                    "name": "campaignId"
+                }
+            ], 
+            "visibility": "PRIVATE", 
+            "references": [], 
+            "location": {
+                "column": 34, 
+                "line": 154
+            }, 
+            "returnType": "Map", 
+            "type": null
+        }
+    ]
+}

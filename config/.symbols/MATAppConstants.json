@@ -1,0 +1,52 @@
+{
+    "properties": [], 
+    "externalReferences": [], 
+    "innerClasses": [
+        {
+            "properties": [], 
+            "externalReferences": [], 
+            "innerClasses": [], 
+            "interfaces": [], 
+            "constructors": [], 
+            "namespace": null, 
+            "name": "CALCMODE", 
+            "tableDeclaration": {
+                "type": "CALCMODE", 
+                "modifiers": [
+                    "public"
+                ], 
+                "references": [], 
+                "location": {
+                    "column": 14, 
+                    "line": 3
+                }, 
+                "name": "CALCMODE"
+            }, 
+            "key": null, 
+            "variables": [], 
+            "id": null, 
+            "methods": []
+        }
+    ], 
+    "interfaces": [], 
+    "constructors": [], 
+    "namespace": null, 
+    "name": "MATAppConstants", 
+    "tableDeclaration": {
+        "type": "MATAppConstants", 
+        "modifiers": [
+            "public", 
+            "with sharing"
+        ], 
+        "references": [], 
+        "location": {
+            "column": 27, 
+            "line": 1
+        }, 
+        "name": "MATAppConstants"
+    }, 
+    "key": "01pq00000000X3SAAU", 
+    "variables": [], 
+    "id": "01pq00000000X3SAAU", 
+    "methods": []
+}

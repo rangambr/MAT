@@ -1,0 +1,368 @@
+{
+    "properties": [], 
+    "externalReferences": [], 
+    "innerClasses": [], 
+    "interfaces": [], 
+    "constructors": [], 
+    "namespace": null, 
+    "name": "TestDataFactory", 
+    "tableDeclaration": {
+        "type": "TestDataFactory", 
+        "modifiers": [
+            "public", 
+            "with sharing"
+        ], 
+        "references": [], 
+        "location": {
+            "column": 27, 
+            "line": 4
+        }, 
+        "name": "TestDataFactory"
+    }, 
+    "key": "01pq0000000AnFNAA0", 
+    "variables": [
+        {
+            "type": "Integer", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 55, 
+                "line": 11
+            }, 
+            "name": "numberOfRecords"
+        }, 
+        {
+            "type": "LIST", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 18, 
+                "line": 12
+            }, 
+            "name": "campaigns"
+        }, 
+        {
+            "type": "Integer", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 16, 
+                "line": 15
+            }, 
+            "name": "i"
+        }, 
+        {
+            "type": "Integer", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 58, 
+                "line": 30
+            }, 
+            "name": "numberOfRecords"
+        }, 
+        {
+            "type": "Date", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 80, 
+                "line": 30
+            }, 
+            "name": "showdate"
+        }, 
+        {
+            "type": "String", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 97, 
+                "line": 30
+            }, 
+            "name": "location"
+        }, 
+        {
+            "type": "String", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 114, 
+                "line": 30
+            }, 
+            "name": "meal"
+        }, 
+        {
+            "type": "LIST", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 21, 
+                "line": 31
+            }, 
+            "name": "showTimes"
+        }, 
+        {
+            "type": "Integer", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 16, 
+                "line": 34
+            }, 
+            "name": "i"
+        }, 
+        {
+            "type": "Integer", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 52, 
+                "line": 48
+            }, 
+            "name": "numberOfRecords"
+        }, 
+        {
+            "type": "String", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 76, 
+                "line": 48
+            }, 
+            "name": "section"
+        }, 
+        {
+            "type": "String", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 92, 
+                "line": 48
+            }, 
+            "name": "location"
+        }, 
+        {
+            "type": "Integer", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 110, 
+                "line": 48
+            }, 
+            "name": "seats"
+        }, 
+        {
+            "type": "LIST", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 18, 
+                "line": 49
+            }, 
+            "name": "tables"
+        }, 
+        {
+            "type": "Integer", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 16, 
+                "line": 52
+            }, 
+            "name": "i"
+        }, 
+        {
+            "type": "LIST", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 71, 
+                "line": 67
+            }, 
+            "name": "tables"
+        }, 
+        {
+            "type": "LIST", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 97, 
+                "line": 67
+            }, 
+            "name": "showTimes"
+        }, 
+        {
+            "type": "Campaign", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 117, 
+                "line": 67
+            }, 
+            "name": "campaign"
+        }, 
+        {
+            "type": "Integer", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 135, 
+                "line": 67
+            }, 
+            "name": "partySize"
+        }, 
+        {
+            "type": "LIST", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 24, 
+                "line": 68
+            }, 
+            "name": "reservations"
+        }, 
+        {
+            "type": "Table__c", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 16, 
+                "line": 70
+            }, 
+            "name": "table"
+        }, 
+        {
+            "type": "Showtime__c", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 20, 
+                "line": 71
+            }, 
+            "name": "showTime"
+        }
+    ], 
+    "id": "01pq0000000AnFNAA0", 
+    "methods": [
+        {
+            "modifiers": [
+                "static", 
+                "public"
+            ], 
+            "name": "createCampaigns", 
+            "parameters": [
+                {
+                    "type": "Integer", 
+                    "name": "numberOfRecords"
+                }
+            ], 
+            "visibility": "PUBLIC", 
+            "references": [], 
+            "location": {
+                "column": 31, 
+                "line": 11
+            }, 
+            "returnType": "LIST", 
+            "type": null
+        }, 
+        {
+            "modifiers": [
+                "static", 
+                "public"
+            ], 
+            "name": "createShowTimes", 
+            "parameters": [
+                {
+                    "type": "Integer", 
+                    "name": "numberOfRecords"
+                }, 
+                {
+                    "type": "Date", 
+                    "name": "showdate"
+                }, 
+                {
+                    "type": "String", 
+                    "name": "location"
+                }, 
+                {
+                    "type": "String", 
+                    "name": "meal"
+                }
+            ], 
+            "visibility": "PUBLIC", 
+            "references": [], 
+            "location": {
+                "column": 34, 
+                "line": 30
+            }, 
+            "returnType": "LIST", 
+            "type": null
+        }, 
+        {
+            "modifiers": [
+                "static", 
+                "public"
+            ], 
+            "name": "createTables", 
+            "parameters": [
+                {
+                    "type": "Integer", 
+                    "name": "numberOfRecords"
+                }, 
+                {
+                    "type": "String", 
+                    "name": "section"
+                }, 
+                {
+                    "type": "String", 
+                    "name": "location"
+                }, 
+                {
+                    "type": "Integer", 
+                    "name": "seats"
+                }
+            ], 
+            "visibility": "PUBLIC", 
+            "references": [], 
+            "location": {
+                "column": 31, 
+                "line": 48
+            }, 
+            "returnType": "LIST", 
+            "type": null
+        }, 
+        {
+            "modifiers": [
+                "static", 
+                "public"
+            ], 
+            "name": "createReservations", 
+            "parameters": [
+                {
+                    "type": "LIST", 
+                    "name": "tables"
+                }, 
+                {
+                    "type": "LIST", 
+                    "name": "showTimes"
+                }, 
+                {
+                    "type": "Campaign", 
+                    "name": "campaign"
+                }, 
+                {
+                    "type": "Integer", 
+                    "name": "partySize"
+                }
+            ], 
+            "visibility": "PUBLIC", 
+            "references": [], 
+            "location": {
+                "column": 37, 
+                "line": 67
+            }, 
+            "returnType": "LIST", 
+            "type": null
+        }
+    ]
+}
