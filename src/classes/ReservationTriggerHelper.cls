@@ -17,28 +17,26 @@ public with sharing class ReservationTriggerHelper {
 	public static void calculateRevenueAndReferrals(Map<Id, Reservation__c> newMap){
 		
 		Set<Id> showTimesToRecalculate = new Set<Id>();
-		//This map holds how many Referrals made per Campaign.
-		Map<Id, Integer> referralsPerCampaign = new Map<Id, Integer>();
+		Set<Id> campaignIds = new Set<Id>();
 
 		for(Reservation__c reservation : newMap.values()){
 			//during an insert or undelete - if there is a ShowTime__c and a Party_Size__c revenue should be
 			//recalculated.
-			if(reservation.ShowTime__c != null || reservation.Party_Size__c != null){
+			if(reservation.ShowTime__c != null && (reservation.Party_Size__c != null &&  reservation.Party_Size__c > 0)){
 				showTimesToRecalculate.add(reservation.ShowTime__c);
 			}
 
 			//identify referrals inserted or undeleted per campaign.
 			if(reservation.Referred_By__c != null){
-				referralsPerCampaign = incrementReferralsPerCampaign(referralsPerCampaign, reservation.Referred_By__c);
+				campaignIds.add(reservation.Referred_By__c);
 			}
 		}
 
-		//recalculate revenue on ShowTimes
-		reCalculateShowTimeRevenue(showTimesToRecalculate);
+		//recalculate Total_Revenue__c on ShowTimes
+		reCalculateShowTimeRevenue(showTimesToRecalculate, newMap.values());
 
-		//Setup Total_Number_Referrals__c on Campaign. During an insertion or undeletion there will always
-		//increments to the number of referrals per campaign hence a new empty map is passed to the helper method.
-		setupTotalNumberofReferrals(referralsPerCampaign, new Map<Id, Integer>());
+		//Setup Total_Number_Referrals__c on Campaign. 
+		setupTotalNumberofReferrals(campaignIds, newMap.values());
 	}
 
 	/* @description: This method identifies ShowTimes to calculate Revenue and Campaigns to count Referrals
@@ -50,35 +48,34 @@ public with sharing class ReservationTriggerHelper {
 	public static void calculateRevenueAndReferrals(Map<Id, Reservation__c> newMap, Map<Id, Reservation__c> oldMap){
 		
 		Set<Id> showTimesToRecalculate = new Set<Id>();
-		Map<Id, Integer> referralsPerCampaignToAdd = new Map<Id, Integer>();
-		Map<Id, Integer> referralsPerCampaignToRemove = new Map<Id, Integer>();
+		Set<Id> campaignIds = new Set<Id>();
 
 		for(Reservation__c newReservation : newMap.values()){
-			//setup Revenue on ShowTime
+			//Identify Showtimes needs calculating Total_Revenue__c
 			if(newReservation.ShowTime__c != oldMap.get(newReservation.Id).ShowTime__c
-				|| newReservation.Party_Size__c != oldMap.get(newReservation.Id).Party_Size__c){
+				|| (newReservation.Party_Size__c != oldMap.get(newReservation.Id).Party_Size__c)){
 				showTimesToRecalculate.add(newReservation.ShowTime__c);
 			}
+			
 			//New Referral is added
 			if(newReservation.Referred_By__c != null && oldMap.get(newReservation.Id).Referred_By__c == null) {
-				incrementReferralsPerCampaign(referralsPerCampaignToAdd, newReservation.Referred_By__c);
+				campaignIds.add(newReservation.Referred_By__c);
 			} 
 			//Referral is removed
 			else if(newReservation.Referred_By__c == null && oldMap.get(newReservation.Id).Referred_By__c != null){
-				incrementReferralsPerCampaign(referralsPerCampaignToRemove, oldMap.get(newReservation.Id).Referred_By__c);
+				campaignIds.add(oldMap.get(newReservation.Id).Referred_By__c);
 			} 
 			//Referral is changed from one Campaign to another
 			else if(newReservation.Referred_By__c != oldMap.get(newReservation.Id).Referred_By__c){
-				incrementReferralsPerCampaign(referralsPerCampaignToAdd, newReservation.Referred_By__c);
-				incrementReferralsPerCampaign(referralsPerCampaignToRemove, oldMap.get(newReservation.Id).Referred_By__c);
+				campaignIds.add(newReservation.Referred_By__c);
+				campaignIds.add(oldMap.get(newReservation.Id).Referred_By__c);
 			}
 		}
 		//recalculate revenue on ShowTimes
-		reCalculateShowTimeRevenue(showTimesToRecalculate);
+		reCalculateShowTimeRevenue(showTimesToRecalculate, newMap.values());
 
-		//Setup Total_Number_Referrals__c on Campaign. During an insertion or undeletion there will always
-		//increments to the number of referrals per campaign hence a new empty map is passed to the helper method.
-		setupTotalNumberofReferrals(referralsPerCampaignToAdd, referralsPerCampaignToRemove);
+		//Setup Total_Number_Referrals__c on Campaign. 
+		setupTotalNumberofReferrals(campaignIds, newMap.values());
 
 	}
 
@@ -88,77 +85,101 @@ public with sharing class ReservationTriggerHelper {
 	 * @param:       Set<Id> showTimeIds - ShowTimeIds which Revenue needs recalculating.  				
 	 * @return:      void
 	 */
-	private static void reCalculateShowTimeRevenue(Set<Id> showTimeIds){
+	private static void reCalculateShowTimeRevenue(Set<Id> showTimeIds, List<Reservation__c> reservations){
 		
 		if(! showTimeIds.isEmpty()){
 			List<ShowTime__c> showTimesToUpdate = new List<ShowTime__c>();
+			Map<Id, Double> totalRevPerShowTime = new Map<Id, Double> ();
 
 			AggregateResult[] reservationsByShowTime = [SELECT ShowTime__c, SUM(Revenue__c) totalRevenue 
-															FROM Reservation__c 
-															WHERE ShowTime__c=:showTimeIds GROUP BY ShowTime__c];
-			
-			for (AggregateResult reservationByShowTime : reservationsByShowTime)  {
-			    showTimesToUpdate.add(new ShowTime__c(Id = (Id)reservationByShowTime.get('ShowTime__c'), 
-			    	Total_Revenue__c = (Decimal)reservationByShowTime.get('totalRevenue')));
-			}
+																FROM Reservation__c 
+																WHERE ShowTime__c =:showTimeIds GROUP BY ShowTime__c];
+			try {
+				for (AggregateResult reservationByShowTime : reservationsByShowTime)  {
+					totalRevPerShowTime.put((Id)reservationByShowTime.get('ShowTime__c'), 
+						(Decimal)reservationByShowTime.get('totalRevenue'));
+				}
 
-			if(showTimesToUpdate != null && showTimesToUpdate.size() > 0){
-				update showTimesToUpdate;
+				for(Id showTimeId : showTimeIds){
+					if(totalRevPerShowTime.containsKey(showTimeId)){
+						showTimesToUpdate.add(new Showtime__c(Id = showTimeId, 
+							Total_Revenue__c = totalRevPerShowTime.get(showTimeId)));
+					} else {
+						showTimesToUpdate.add(new Showtime__c(Id = showTimeId, Total_Revenue__c = 0.00));
+					}
+				}
+
+				if(showTimesToUpdate.size() > 0){
+					update showTimesToUpdate;
+				}
+			} catch(Exception ex) {
+				//If any other exception occurs, display the message to the end user.
+				for(Reservation__c reservation : reservations) {
+					reservation.addError(ex.getMessage());
+				}
 			}
 		}
 	}
 
 	/* @description: This method calculates the Total_Number_Referrals__c on Campaigns. As there can be up to
-	 *				 10000 Referrals per Campaign, this method identifies the changes to Referrals and updates
-	 * 				 only affected Campaigns rather than recalculating total number of referrals per Campaign.
-	 * @param:       Map<Id, Integer> referralsPerCampaignToAdd - Referrals added per Campaign
-	 * @param:       Map<Id, Integer> referralsPerCampaignToRemove - Referrals removed per Campaign
+	 *				 10000 Referrals per Campaign, there is a possibility that Aggregate Query could reach limits.
+	 *				 In case if there is an exception, reservation records will not be updated or inserted and error
+	 *				 message will be displayed to the user.
+	 * @param:       Set<Id> campaignIds - Campaigns which needs calculating number of referrals.
+	 * @param:       List<Reservation__c> reservations - List of Reservations being inserted/updated. Used to add
+	 *				 error message if there is any.
 	 * @return:      void
 	 */
-	private static void setupTotalNumberofReferrals(Map<Id, Integer> referralsPerCampaignToAdd, 
-		Map<Id, Integer> referralsPerCampaignToRemove){
-
-		//Get a set of all affected Campaigns
-		Set<Id> campaignIdsToUpdate = new Set<Id>(referralsPerCampaignToAdd.keySet());
-		campaignIdsToUpdate.addAll(referralsPerCampaignToRemove.keySet());
-
-		if(!campaignIdsToUpdate.isEmpty()){
-			
-			List<Campaign> campaignsToUpdate = [SELECT Id, Total_Number_Referrals__c 
-														FROM Campaign 
-														WHERE Id=:campaignIdsToUpdate];
-
-			for(Campaign campaignToUpdate : campaignsToUpdate){
-				//If Total_Number_Referrals__c is null default to zero.
-				Decimal totalReferrals = campaignToUpdate.Total_Number_Referrals__c == null ? 0
-				 : campaignToUpdate.Total_Number_Referrals__c;
-
-				if(referralsPerCampaignToAdd.containsKey(campaignToUpdate.Id)){
-					totalReferrals +=  referralsPerCampaignToAdd.get(campaignToUpdate.Id);
-				}
-				if(referralsPerCampaignToRemove.containsKey(campaignToUpdate.Id)){
-					totalReferrals -=  referralsPerCampaignToRemove.get(campaignToUpdate.Id);
-				}
-				campaignToUpdate.Total_Number_Referrals__c = totalReferrals;
-			}
-			update campaignsToUpdate;
-		}
-	}
-
-	/* @description: This helper method increments the number of referrals per each campaign by one.
-	 * @param: Map<Id, Integer> referralsPerCampaign - Mapping of Campaign to number of referrals
-	 * @param: Id campaignId - Id of the campaign to increment the number.
-	 * @return: Map<Id, Integer>
-	 */
-	@testVisible
-	private static Map<Id, Integer> incrementReferralsPerCampaign(Map<Id, Integer> referralsPerCampaign, Id campaignId){
+	private static void setupTotalNumberofReferrals(Set<Id> campaignIds, List<Reservation__c> reservations){
 		
-		if(referralsPerCampaign.containsKey(campaignId)){
-			referralsPerCampaign.put(campaignId,
-				referralsPerCampaign.get(campaignId) + 1);
-		} else {
-			referralsPerCampaign.put(campaignId, 1);
+		if(! campaignIds.isEmpty()){
+
+			List<Campaign> campaignsToUpdate = new List<Campaign>();
+			AggregateResult[] reservationsByCampaigns;
+			
+			try {
+				reservationsByCampaigns = [SELECT Referred_By__c, COUNT(Id) totalReferrals 
+															FROM Reservation__c 
+															WHERE Referred_By__c =:campaignIds 
+															GROUP BY Referred_By__c];
+			} catch(LimitException ex){
+				for(Reservation__c reservation : reservations){
+					reservation.addError(Label.Reservation_Aggregate_Query_Error_Referrals+':'+ex.getMessage());
+				}
+			} catch(Exception ex){
+				//If any other exception occurs, display the message to the end user.
+				for(Reservation__c reservation : reservations){
+					reservation.addError(ex.getMessage());
+				}
+			}
+			
+			try {
+				Map<Id, Integer> currentReferralsPerCampaign = new Map<Id, Integer> ();
+				
+				for (AggregateResult reservationsByCampaign : reservationsByCampaigns)  {
+					currentReferralsPerCampaign.put((Id)reservationsByCampaign.get('Referred_By__c'), 
+						(Integer)reservationsByCampaign.get('totalReferrals'));
+				}
+			
+				for(Id campaignId : campaignIds){
+					if(currentReferralsPerCampaign.containsKey(campaignId)){
+						campaignsToUpdate.add(new Campaign(Id = campaignId, 
+							Total_Number_Referrals__c = currentReferralsPerCampaign.get(campaignId)));
+					} else {
+						campaignsToUpdate.add(new Campaign(Id = campaignId, Total_Number_Referrals__c = 0));
+					}
+				}
+
+				if(campaignsToUpdate.size() > 0){
+					update campaignsToUpdate;
+				}
+				
+			} catch(Exception ex){
+				//If there are any exceptions notify user.
+				for(Reservation__c reservation : reservations){
+					reservation.addError(ex.getMessage());
+				}
+			}
 		}
-		return referralsPerCampaign;
 	}
 }

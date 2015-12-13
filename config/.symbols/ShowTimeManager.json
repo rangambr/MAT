@@ -1,0 +1,556 @@
+{
+    "properties": [
+        {
+            "modifiers": [
+                "public", 
+                "final"
+            ], 
+            "name": "pageSize", 
+            "visibility": "PUBLIC", 
+            "references": [], 
+            "location": {
+                "column": 26, 
+                "line": 9
+            }, 
+            "type": "Integer"
+        }, 
+        {
+            "modifiers": [
+                "public"
+            ], 
+            "name": "totalNoOfRecords", 
+            "visibility": "PUBLIC", 
+            "references": [], 
+            "location": {
+                "column": 20, 
+                "line": 11
+            }, 
+            "type": "Integer"
+        }, 
+        {
+            "modifiers": [
+                "public"
+            ], 
+            "name": "selectedSection", 
+            "visibility": "PUBLIC", 
+            "references": [], 
+            "location": {
+                "column": 19, 
+                "line": 13
+            }, 
+            "type": "String"
+        }, 
+        {
+            "modifiers": [
+                "private", 
+                "final"
+            ], 
+            "name": "showtime", 
+            "visibility": "PRIVATE", 
+            "references": [], 
+            "location": {
+                "column": 28, 
+                "line": 16
+            }, 
+            "type": "Showtime__c"
+        }, 
+        {
+            "modifiers": [
+                "private"
+            ], 
+            "name": "tableReservation", 
+            "visibility": "PRIVATE", 
+            "references": [], 
+            "location": {
+                "column": 37, 
+                "line": 18
+            }, 
+            "type": "Map"
+        }, 
+        {
+            "modifiers": [
+                "private"
+            ], 
+            "name": "stdShowtime", 
+            "visibility": "PRIVATE", 
+            "references": [], 
+            "location": {
+                "column": 42, 
+                "line": 20
+            }, 
+            "type": "StandardController"
+        }, 
+        {
+            "modifiers": [
+                "private"
+            ], 
+            "name": "tableSet", 
+            "visibility": "PRIVATE", 
+            "references": [], 
+            "location": {
+                "column": 45, 
+                "line": 22
+            }, 
+            "type": "StandardSetController"
+        }, 
+        {
+            "modifiers": [
+                "public"
+            ], 
+            "name": "hasNext", 
+            "visibility": "PUBLIC", 
+            "references": [], 
+            "location": {
+                "column": 20, 
+                "line": 171
+            }, 
+            "type": "Boolean"
+        }, 
+        {
+            "modifiers": [
+                "public"
+            ], 
+            "name": "hasPrevious", 
+            "visibility": "PUBLIC", 
+            "references": [], 
+            "location": {
+                "column": 20, 
+                "line": 181
+            }, 
+            "type": "Boolean"
+        }, 
+        {
+            "modifiers": [
+                "public"
+            ], 
+            "name": "pageNumber", 
+            "visibility": "PUBLIC", 
+            "references": [], 
+            "location": {
+                "column": 20, 
+                "line": 191
+            }, 
+            "type": "Integer"
+        }
+    ], 
+    "externalReferences": [], 
+    "innerClasses": [], 
+    "interfaces": [], 
+    "constructors": [
+        {
+            "modifiers": [
+                "public"
+            ], 
+            "name": "ShowTimeManager", 
+            "parameters": [
+                {
+                    "type": "StandardController", 
+                    "name": "stdShowtime"
+                }
+            ], 
+            "visibility": "PUBLIC", 
+            "references": [], 
+            "location": {
+                "column": 12, 
+                "line": 29
+            }, 
+            "type": null
+        }
+    ], 
+    "namespace": null, 
+    "name": "ShowTimeManager", 
+    "tableDeclaration": {
+        "type": "ShowTimeManager", 
+        "modifiers": [
+            "public", 
+            "with sharing"
+        ], 
+        "references": [], 
+        "location": {
+            "column": 27, 
+            "line": 6
+        }, 
+        "name": "ShowTimeManager"
+    }, 
+    "key": "01pq00000000aZgAAI", 
+    "variables": [
+        {
+            "type": "StandardController", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 57, 
+                "line": 29
+            }, 
+            "name": "stdShowtime"
+        }, 
+        {
+            "type": "LIST", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 28, 
+                "line": 51
+            }, 
+            "name": "sections"
+        }, 
+        {
+            "type": "String", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 20, 
+                "line": 55
+            }, 
+            "name": "section"
+        }, 
+        {
+            "type": "String", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 16, 
+                "line": 67
+            }, 
+            "name": "queryString"
+        }, 
+        {
+            "type": "Message", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 31, 
+                "line": 74
+            }, 
+            "name": "errormsg"
+        }, 
+        {
+            "type": "LIST", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 30, 
+                "line": 86
+            }, 
+            "name": "resList"
+        }, 
+        {
+            "type": "Table__c", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 22, 
+                "line": 88
+            }, 
+            "name": "t"
+        }, 
+        {
+            "type": "Reservation__c", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 32, 
+                "line": 92
+            }, 
+            "name": "res"
+        }, 
+        {
+            "type": "LIST", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 30, 
+                "line": 108
+            }, 
+            "name": "resList"
+        }, 
+        {
+            "type": "Id", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 16, 
+                "line": 110
+            }, 
+            "name": "resId"
+        }, 
+        {
+            "type": "Message", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 31, 
+                "line": 129
+            }, 
+            "name": "errormsg"
+        }, 
+        {
+            "type": "LIST", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 30, 
+                "line": 135
+            }, 
+            "name": "reservationsToUpsert"
+        }, 
+        {
+            "type": "LIST", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 30, 
+                "line": 136
+            }, 
+            "name": "reservationsToDelete"
+        }, 
+        {
+            "type": "Id", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 16, 
+                "line": 139
+            }, 
+            "name": "tableId"
+        }, 
+        {
+            "type": "Message", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 31, 
+                "line": 158
+            }, 
+            "name": "errormsg"
+        }, 
+        {
+            "type": "LIST", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 34, 
+                "line": 233
+            }, 
+            "name": "reservations"
+        }, 
+        {
+            "type": "Reservation__c", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 32, 
+                "line": 237
+            }, 
+            "name": "reservation"
+        }, 
+        {
+            "type": "String", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 16, 
+                "line": 248
+            }, 
+            "name": "locationFilter"
+        }, 
+        {
+            "type": "String", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 16, 
+                "line": 249
+            }, 
+            "name": "sectionFilter"
+        }, 
+        {
+            "type": "String", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 16, 
+                "line": 251
+            }, 
+            "name": "filterString"
+        }, 
+        {
+            "type": "String", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 16, 
+                "line": 263
+            }, 
+            "name": "queryString"
+        }
+    ], 
+    "id": "01pq00000000aZgAAI", 
+    "methods": [
+        {
+            "modifiers": [
+                "public"
+            ], 
+            "name": "getSectionFilter", 
+            "parameters": [], 
+            "visibility": "PUBLIC", 
+            "references": [], 
+            "location": {
+                "column": 31, 
+                "line": 50
+            }, 
+            "returnType": "LIST", 
+            "type": null
+        }, 
+        {
+            "modifiers": [
+                "public"
+            ], 
+            "name": "setupTableSet", 
+            "parameters": [], 
+            "visibility": "PUBLIC", 
+            "references": [], 
+            "location": {
+                "column": 26, 
+                "line": 65
+            }, 
+            "returnType": "PageReference", 
+            "type": null
+        }, 
+        {
+            "modifiers": [
+                "public"
+            ], 
+            "name": "getReservations", 
+            "parameters": [], 
+            "visibility": "PUBLIC", 
+            "references": [], 
+            "location": {
+                "column": 33, 
+                "line": 84
+            }, 
+            "returnType": "LIST", 
+            "type": null
+        }, 
+        {
+            "modifiers": [
+                "public"
+            ], 
+            "name": "getChartData", 
+            "parameters": [], 
+            "visibility": "PUBLIC", 
+            "references": [], 
+            "location": {
+                "column": 47, 
+                "line": 106
+            }, 
+            "returnType": "LIST", 
+            "type": null
+        }, 
+        {
+            "modifiers": [
+                "public"
+            ], 
+            "name": "save", 
+            "parameters": [], 
+            "visibility": "PUBLIC", 
+            "references": [], 
+            "location": {
+                "column": 26, 
+                "line": 122
+            }, 
+            "returnType": "PageReference", 
+            "type": null
+        }, 
+        {
+            "modifiers": [
+                "public"
+            ], 
+            "name": "first", 
+            "parameters": [], 
+            "visibility": "PUBLIC", 
+            "references": [], 
+            "location": {
+                "column": 17, 
+                "line": 201
+            }, 
+            "returnType": "void", 
+            "type": null
+        }, 
+        {
+            "modifiers": [
+                "public"
+            ], 
+            "name": "last", 
+            "parameters": [], 
+            "visibility": "PUBLIC", 
+            "references": [], 
+            "location": {
+                "column": 17, 
+                "line": 208
+            }, 
+            "returnType": "void", 
+            "type": null
+        }, 
+        {
+            "modifiers": [
+                "public"
+            ], 
+            "name": "previous", 
+            "parameters": [], 
+            "visibility": "PUBLIC", 
+            "references": [], 
+            "location": {
+                "column": 17, 
+                "line": 215
+            }, 
+            "returnType": "void", 
+            "type": null
+        }, 
+        {
+            "modifiers": [
+                "public"
+            ], 
+            "name": "next", 
+            "parameters": [], 
+            "visibility": "PUBLIC", 
+            "references": [], 
+            "location": {
+                "column": 17, 
+                "line": 222
+            }, 
+            "returnType": "void", 
+            "type": null
+        }, 
+        {
+            "modifiers": [
+                "private"
+            ], 
+            "name": "setupReservations", 
+            "parameters": [], 
+            "visibility": "PRIVATE", 
+            "references": [], 
+            "location": {
+                "column": 18, 
+                "line": 230
+            }, 
+            "returnType": "void", 
+            "type": null
+        }, 
+        {
+            "modifiers": [
+                "private"
+            ], 
+            "name": "getQueryString", 
+            "parameters": [], 
+            "visibility": "PRIVATE", 
+            "references": [], 
+            "location": {
+                "column": 20, 
+                "line": 247
+            }, 
+            "returnType": "String", 
+            "type": null
+        }
+    ]
+}

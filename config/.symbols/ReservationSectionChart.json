@@ -1,0 +1,247 @@
+{
+    "properties": [], 
+    "externalReferences": [], 
+    "innerClasses": [
+        {
+            "properties": [
+                {
+                    "modifiers": [
+                        "public"
+                    ], 
+                    "name": "section", 
+                    "visibility": "PUBLIC", 
+                    "references": [], 
+                    "location": {
+                        "column": 17, 
+                        "line": 72
+                    }, 
+                    "type": "String"
+                }, 
+                {
+                    "modifiers": [
+                        "public"
+                    ], 
+                    "name": "attendance", 
+                    "visibility": "PUBLIC", 
+                    "references": [], 
+                    "location": {
+                        "column": 17, 
+                        "line": 73
+                    }, 
+                    "type": "Double"
+                }
+            ], 
+            "externalReferences": [], 
+            "innerClasses": [], 
+            "interfaces": [], 
+            "constructors": [
+                {
+                    "modifiers": [
+                        "public"
+                    ], 
+                    "name": "Data", 
+                    "parameters": [
+                        {
+                            "type": "String", 
+                            "name": "section"
+                        }, 
+                        {
+                            "type": "Double", 
+                            "name": "attendance"
+                        }
+                    ], 
+                    "visibility": "PUBLIC", 
+                    "references": [], 
+                    "location": {
+                        "column": 10, 
+                        "line": 78
+                    }, 
+                    "type": null
+                }
+            ], 
+            "namespace": null, 
+            "name": "Data", 
+            "tableDeclaration": {
+                "type": "Data", 
+                "modifiers": [
+                    "public"
+                ], 
+                "references": [], 
+                "location": {
+                    "column": 15, 
+                    "line": 70
+                }, 
+                "name": "Data"
+            }, 
+            "key": null, 
+            "variables": [
+                {
+                    "type": "String", 
+                    "modifiers": [], 
+                    "references": [], 
+                    "location": {
+                        "column": 22, 
+                        "line": 78
+                    }, 
+                    "name": "section"
+                }, 
+                {
+                    "type": "Double", 
+                    "modifiers": [], 
+                    "references": [], 
+                    "location": {
+                        "column": 38, 
+                        "line": 78
+                    }, 
+                    "name": "attendance"
+                }
+            ], 
+            "id": null, 
+            "methods": []
+        }
+    ], 
+    "interfaces": [], 
+    "constructors": [], 
+    "namespace": null, 
+    "name": "ReservationSectionChart", 
+    "tableDeclaration": {
+        "type": "ReservationSectionChart", 
+        "modifiers": [
+            "public", 
+            "with sharing"
+        ], 
+        "references": [], 
+        "location": {
+            "column": 27, 
+            "line": 6
+        }, 
+        "name": "ReservationSectionChart"
+    }, 
+    "key": "01pq00000000ab8AAA", 
+    "variables": [
+        {
+            "type": "LIST", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 61, 
+                "line": 17
+            }, 
+            "name": "currentReservations"
+        }, 
+        {
+            "type": "LIST", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 14, 
+                "line": 19
+            }, 
+            "name": "chartData"
+        }, 
+        {
+            "type": "LIST", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 17, 
+                "line": 25
+            }, 
+            "name": "tableSections"
+        }, 
+        {
+            "type": "Map", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 24, 
+                "line": 28
+            }, 
+            "name": "attendanceBySection"
+        }, 
+        {
+            "type": "Reservation__c", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 24, 
+                "line": 32
+            }, 
+            "name": "reservation"
+        }, 
+        {
+            "type": "Double", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 13, 
+                "line": 38
+            }, 
+            "name": "reservationPartySize"
+        }, 
+        {
+            "type": "Double", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 13, 
+                "line": 41
+            }, 
+            "name": "totalPartySize"
+        }, 
+        {
+            "type": "Message", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 23, 
+                "line": 47
+            }, 
+            "name": "errormsg"
+        }, 
+        {
+            "type": "String", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 15, 
+                "line": 53
+            }, 
+            "name": "tableSection"
+        }, 
+        {
+            "type": "Double", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 12, 
+                "line": 54
+            }, 
+            "name": "attendance"
+        }
+    ], 
+    "id": "01pq00000000ab8AAA", 
+    "methods": [
+        {
+            "modifiers": [
+                "static", 
+                "public"
+            ], 
+            "name": "getChartData", 
+            "parameters": [
+                {
+                    "type": "LIST", 
+                    "name": "currentReservations"
+                }
+            ], 
+            "visibility": "PUBLIC", 
+            "references": [], 
+            "location": {
+                "column": 27, 
+                "line": 17
+            }, 
+            "returnType": "LIST", 
+            "type": null
+        }
+    ]
+}

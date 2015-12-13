@@ -5,14 +5,28 @@
                 "private", 
                 "static"
             ], 
-            "name": "reservations", 
+            "name": "showTime", 
             "visibility": "PRIVATE", 
             "references": [], 
             "location": {
-                "column": 38, 
-                "line": 3
+                "column": 29, 
+                "line": 10
             }, 
-            "type": "LIST"
+            "type": "Showtime__c"
+        }, 
+        {
+            "modifiers": [
+                "private", 
+                "static"
+            ], 
+            "name": "campaign", 
+            "visibility": "PRIVATE", 
+            "references": [], 
+            "location": {
+                "column": 26, 
+                "line": 11
+            }, 
+            "type": "Campaign"
         }
     ], 
     "externalReferences": [], 
@@ -30,71 +44,31 @@
         "references": [], 
         "location": {
             "column": 15, 
-            "line": 2
+            "line": 8
         }, 
         "name": "ReservationTriggerHelperTest"
     }, 
     "key": "01pq0000000AnFDAA0", 
     "variables": [
         {
-            "type": "LIST", 
+            "type": "Table__c", 
             "modifiers": [], 
             "references": [], 
             "location": {
-                "column": 16, 
-                "line": 5
+                "column": 12, 
+                "line": 26
             }, 
-            "name": "showTimeLocations"
+            "name": "table"
         }, 
         {
-            "type": "LIST", 
-            "modifiers": [], 
-            "references": [], 
-            "location": {
-                "column": 16, 
-                "line": 6
-            }, 
-            "name": "showtimeMeals"
-        }, 
-        {
-            "type": "LIST", 
-            "modifiers": [], 
-            "references": [], 
-            "location": {
-                "column": 16, 
-                "line": 7
-            }, 
-            "name": "tableLocations"
-        }, 
-        {
-            "type": "LIST", 
-            "modifiers": [], 
-            "references": [], 
-            "location": {
-                "column": 16, 
-                "line": 8
-            }, 
-            "name": "tableSections"
-        }, 
-        {
-            "type": "Date", 
-            "modifiers": [], 
-            "references": [], 
-            "location": {
-                "column": 8, 
-                "line": 10
-            }, 
-            "name": "showDate"
-        }, 
-        {
-            "type": "LIST", 
+            "type": "Reservation__c", 
             "modifiers": [], 
             "references": [], 
             "location": {
                 "column": 18, 
-                "line": 12
+                "line": 30
             }, 
-            "name": "campaigns"
+            "name": "reservation"
         }, 
         {
             "type": "LIST", 
@@ -102,7 +76,7 @@
             "references": [], 
             "location": {
                 "column": 21, 
-                "line": 15
+                "line": 45
             }, 
             "name": "showTimes"
         }, 
@@ -112,9 +86,519 @@
             "references": [], 
             "location": {
                 "column": 18, 
-                "line": 18
+                "line": 47
             }, 
             "name": "tables"
+        }, 
+        {
+            "type": "LIST", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 24, 
+                "line": 51
+            }, 
+            "name": "reservations"
+        }, 
+        {
+            "type": "Showtime__c", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 15, 
+                "line": 67
+            }, 
+            "name": "show"
+        }, 
+        {
+            "type": "Table__c", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 12, 
+                "line": 71
+            }, 
+            "name": "table"
+        }, 
+        {
+            "type": "Reservation__c", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 18, 
+                "line": 76
+            }, 
+            "name": "reservation"
+        }, 
+        {
+            "type": "LIST", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 21, 
+                "line": 90
+            }, 
+            "name": "showTimes"
+        }, 
+        {
+            "type": "LIST", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 18, 
+                "line": 94
+            }, 
+            "name": "tables"
+        }, 
+        {
+            "type": "LIST", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 24, 
+                "line": 98
+            }, 
+            "name": "reservations"
+        }, 
+        {
+            "type": "Reservation__c", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 18, 
+                "line": 109
+            }, 
+            "name": "reservation"
+        }, 
+        {
+            "type": "Showtime__c", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 15, 
+                "line": 123
+            }, 
+            "name": "show"
+        }, 
+        {
+            "type": "Reservation__c", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 18, 
+                "line": 137
+            }, 
+            "name": "resWith20Revenue1"
+        }, 
+        {
+            "type": "Reservation__c", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 18, 
+                "line": 140
+            }, 
+            "name": "resWith20Revenue2"
+        }, 
+        {
+            "type": "Showtime__c", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 15, 
+                "line": 145
+            }, 
+            "name": "show"
+        }, 
+        {
+            "type": "Reservation__c", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 18, 
+                "line": 171
+            }, 
+            "name": "resWith20Revenue1"
+        }, 
+        {
+            "type": "Reservation__c", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 18, 
+                "line": 174
+            }, 
+            "name": "resWith20Revenue2"
+        }, 
+        {
+            "type": "Showtime__c", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 15, 
+                "line": 183
+            }, 
+            "name": "show"
+        }, 
+        {
+            "type": "Reservation__c", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 18, 
+                "line": 208
+            }, 
+            "name": "reservation"
+        }, 
+        {
+            "type": "Showtime__c", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 15, 
+                "line": 214
+            }, 
+            "name": "show"
+        }, 
+        {
+            "type": "Reservation__c", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 18, 
+                "line": 240
+            }, 
+            "name": "reservation"
+        }, 
+        {
+            "type": "Campaign", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 12, 
+                "line": 244
+            }, 
+            "name": "cmp"
+        }, 
+        {
+            "type": "Reservation__c", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 18, 
+                "line": 269
+            }, 
+            "name": "reservation1"
+        }, 
+        {
+            "type": "Reservation__c", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 18, 
+                "line": 272
+            }, 
+            "name": "reservation2"
+        }, 
+        {
+            "type": "Campaign", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 12, 
+                "line": 278
+            }, 
+            "name": "cmp"
+        }, 
+        {
+            "type": "Reservation__c", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 18, 
+                "line": 303
+            }, 
+            "name": "reservation1"
+        }, 
+        {
+            "type": "Reservation__c", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 18, 
+                "line": 306
+            }, 
+            "name": "reservation2"
+        }, 
+        {
+            "type": "Campaign", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 12, 
+                "line": 315
+            }, 
+            "name": "cmp"
+        }, 
+        {
+            "type": "Reservation__c", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 18, 
+                "line": 340
+            }, 
+            "name": "reservation"
+        }, 
+        {
+            "type": "Campaign", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 12, 
+                "line": 345
+            }, 
+            "name": "cmp"
+        }, 
+        {
+            "type": "Reservation__c", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 18, 
+                "line": 370
+            }, 
+            "name": "reservation"
+        }, 
+        {
+            "type": "Campaign", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 12, 
+                "line": 373
+            }, 
+            "name": "alternateCampaign"
+        }, 
+        {
+            "type": "Campaign", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 12, 
+                "line": 379
+            }, 
+            "name": "initialCampaign"
+        }, 
+        {
+            "type": "Campaign", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 12, 
+                "line": 383
+            }, 
+            "name": "altCampaign"
+        }, 
+        {
+            "type": "Reservation__c", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 18, 
+                "line": 413
+            }, 
+            "name": "reservation"
+        }, 
+        {
+            "type": "Campaign", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 12, 
+                "line": 420
+            }, 
+            "name": "cmp"
+        }, 
+        {
+            "type": "LIST", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 24, 
+                "line": 445
+            }, 
+            "name": "reservations"
+        }, 
+        {
+            "type": "Campaign", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 12, 
+                "line": 452
+            }, 
+            "name": "cmp"
+        }, 
+        {
+            "type": "LIST", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 24, 
+                "line": 463
+            }, 
+            "name": "reservations"
+        }, 
+        {
+            "type": "Campaign", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 12, 
+                "line": 468
+            }, 
+            "name": "cmp"
+        }, 
+        {
+            "type": "LIST", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 24, 
+                "line": 486
+            }, 
+            "name": "reservations"
+        }, 
+        {
+            "type": "Integer", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 15, 
+                "line": 488
+            }, 
+            "name": "i"
+        }, 
+        {
+            "type": "Campaign", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 12, 
+                "line": 497
+            }, 
+            "name": "cmp"
+        }, 
+        {
+            "type": "Integer", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 15, 
+                "line": 501
+            }, 
+            "name": "i"
+        }, 
+        {
+            "type": "Campaign", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 12, 
+                "line": 505
+            }, 
+            "name": "alternateCampaign"
+        }, 
+        {
+            "type": "Integer", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 15, 
+                "line": 508
+            }, 
+            "name": "i"
+        }, 
+        {
+            "type": "Integer", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 15, 
+                "line": 513
+            }, 
+            "name": "i"
+        }, 
+        {
+            "type": "LIST", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 24, 
+                "line": 531
+            }, 
+            "name": "reservations"
+        }, 
+        {
+            "type": "Showtime__c", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 15, 
+                "line": 538
+            }, 
+            "name": "show"
+        }, 
+        {
+            "type": "LIST", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 24, 
+                "line": 549
+            }, 
+            "name": "reservations"
+        }, 
+        {
+            "type": "Showtime__c", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 15, 
+                "line": 554
+            }, 
+            "name": "show"
+        }, 
+        {
+            "type": "LIST", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 24, 
+                "line": 571
+            }, 
+            "name": "reservations"
+        }, 
+        {
+            "type": "Showtime__c", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 15, 
+                "line": 576
+            }, 
+            "name": "show"
+        }, 
+        {
+            "type": "Integer", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 15, 
+                "line": 579
+            }, 
+            "name": "i"
         }
     ], 
     "id": "01pq0000000AnFDAA0", 
@@ -124,13 +608,78 @@
                 "private", 
                 "static"
             ], 
-            "name": "setupTestData", 
+            "name": "createReservationForShowTime", 
             "parameters": [], 
             "visibility": "PRIVATE", 
             "references": [], 
             "location": {
-                "column": 25, 
-                "line": 4
+                "column": 32, 
+                "line": 17
+            }, 
+            "returnType": "Reservation__c", 
+            "type": null
+        }, 
+        {
+            "modifiers": [
+                "private", 
+                "static"
+            ], 
+            "name": "createReservationForShowTimeBulk", 
+            "parameters": [], 
+            "visibility": "PRIVATE", 
+            "references": [], 
+            "location": {
+                "column": 38, 
+                "line": 37
+            }, 
+            "returnType": "LIST", 
+            "type": null
+        }, 
+        {
+            "modifiers": [
+                "private", 
+                "static"
+            ], 
+            "name": "createReservationForCampaign", 
+            "parameters": [], 
+            "visibility": "PRIVATE", 
+            "references": [], 
+            "location": {
+                "column": 32, 
+                "line": 60
+            }, 
+            "returnType": "Reservation__c", 
+            "type": null
+        }, 
+        {
+            "modifiers": [
+                "private", 
+                "static"
+            ], 
+            "name": "createReservationsForCampaignBulk", 
+            "parameters": [], 
+            "visibility": "PRIVATE", 
+            "references": [], 
+            "location": {
+                "column": 38, 
+                "line": 83
+            }, 
+            "returnType": "LIST", 
+            "type": null
+        }, 
+        {
+            "modifiers": [
+                "private", 
+                "static", 
+                "testMethod"
+            ], 
+            "name": "testCalculateRevenueOnInsert", 
+            "parameters": [], 
+            "visibility": "PRIVATE", 
+            "references": [], 
+            "location": {
+                "column": 33, 
+                "line": 107
             }, 
             "returnType": "void", 
             "type": null
@@ -141,13 +690,13 @@
                 "static", 
                 "testMethod"
             ], 
-            "name": "testCalculateRevenueAndReferralsOnInsertion", 
+            "name": "testCalculateRevenueOndelete", 
             "parameters": [], 
             "visibility": "PRIVATE", 
             "references": [], 
             "location": {
-                "column": 22, 
-                "line": 26
+                "column": 33, 
+                "line": 134
             }, 
             "returnType": "void", 
             "type": null
@@ -158,13 +707,234 @@
                 "static", 
                 "testMethod"
             ], 
-            "name": "test_method_two", 
+            "name": "testCalculateRevenueOnunDelete", 
             "parameters": [], 
             "visibility": "PRIVATE", 
             "references": [], 
             "location": {
-                "column": 22, 
-                "line": 35
+                "column": 33, 
+                "line": 168
+            }, 
+            "returnType": "void", 
+            "type": null
+        }, 
+        {
+            "modifiers": [
+                "private", 
+                "static", 
+                "testMethod"
+            ], 
+            "name": "testCalculateRevenueOnUpdate", 
+            "parameters": [], 
+            "visibility": "PRIVATE", 
+            "references": [], 
+            "location": {
+                "column": 33, 
+                "line": 205
+            }, 
+            "returnType": "void", 
+            "type": null
+        }, 
+        {
+            "modifiers": [
+                "private", 
+                "static", 
+                "testMethod"
+            ], 
+            "name": "testCalculateTotalReferralsOnInsert", 
+            "parameters": [], 
+            "visibility": "PRIVATE", 
+            "references": [], 
+            "location": {
+                "column": 33, 
+                "line": 238
+            }, 
+            "returnType": "void", 
+            "type": null
+        }, 
+        {
+            "modifiers": [
+                "private", 
+                "static", 
+                "testMethod"
+            ], 
+            "name": "testCalculateTotalReferralsOnDelete", 
+            "parameters": [], 
+            "visibility": "PRIVATE", 
+            "references": [], 
+            "location": {
+                "column": 33, 
+                "line": 267
+            }, 
+            "returnType": "void", 
+            "type": null
+        }, 
+        {
+            "modifiers": [
+                "private", 
+                "static", 
+                "testMethod"
+            ], 
+            "name": "testCalculateTotalReferralsOnUndelete", 
+            "parameters": [], 
+            "visibility": "PRIVATE", 
+            "references": [], 
+            "location": {
+                "column": 33, 
+                "line": 301
+            }, 
+            "returnType": "void", 
+            "type": null
+        }, 
+        {
+            "modifiers": [
+                "private", 
+                "static", 
+                "testMethod"
+            ], 
+            "name": "testCalculateTotalReferralsOnUpdateClearValue", 
+            "parameters": [], 
+            "visibility": "PRIVATE", 
+            "references": [], 
+            "location": {
+                "column": 33, 
+                "line": 338
+            }, 
+            "returnType": "void", 
+            "type": null
+        }, 
+        {
+            "modifiers": [
+                "private", 
+                "static", 
+                "testMethod"
+            ], 
+            "name": "testCalculateTotalReferralsOnUpdateReasignment", 
+            "parameters": [], 
+            "visibility": "PRIVATE", 
+            "references": [], 
+            "location": {
+                "column": 33, 
+                "line": 369
+            }, 
+            "returnType": "void", 
+            "type": null
+        }, 
+        {
+            "modifiers": [
+                "private", 
+                "static", 
+                "testMethod"
+            ], 
+            "name": "testCalculateTotalReferralsOnUpdateNewValue", 
+            "parameters": [], 
+            "visibility": "PRIVATE", 
+            "references": [], 
+            "location": {
+                "column": 33, 
+                "line": 411
+            }, 
+            "returnType": "void", 
+            "type": null
+        }, 
+        {
+            "modifiers": [
+                "private", 
+                "static", 
+                "testMethod"
+            ], 
+            "name": "testCalculateTotalReferralsOnBulkInsert", 
+            "parameters": [], 
+            "visibility": "PRIVATE", 
+            "references": [], 
+            "location": {
+                "column": 33, 
+                "line": 443
+            }, 
+            "returnType": "void", 
+            "type": null
+        }, 
+        {
+            "modifiers": [
+                "private", 
+                "static", 
+                "testMethod"
+            ], 
+            "name": "testCalculateTotalReferralsOnBulkDelete", 
+            "parameters": [], 
+            "visibility": "PRIVATE", 
+            "references": [], 
+            "location": {
+                "column": 33, 
+                "line": 461
+            }, 
+            "returnType": "void", 
+            "type": null
+        }, 
+        {
+            "modifiers": [
+                "private", 
+                "static", 
+                "testMethod"
+            ], 
+            "name": "testCalculateTotalReferralsOnBulkUpdate", 
+            "parameters": [], 
+            "visibility": "PRIVATE", 
+            "references": [], 
+            "location": {
+                "column": 33, 
+                "line": 484
+            }, 
+            "returnType": "void", 
+            "type": null
+        }, 
+        {
+            "modifiers": [
+                "private", 
+                "static", 
+                "testMethod"
+            ], 
+            "name": "testCalculateTotalRevenueOnBulkInsert", 
+            "parameters": [], 
+            "visibility": "PRIVATE", 
+            "references": [], 
+            "location": {
+                "column": 33, 
+                "line": 529
+            }, 
+            "returnType": "void", 
+            "type": null
+        }, 
+        {
+            "modifiers": [
+                "private", 
+                "static", 
+                "testMethod"
+            ], 
+            "name": "testCalculateTotalRevenueOnBulkDelete", 
+            "parameters": [], 
+            "visibility": "PRIVATE", 
+            "references": [], 
+            "location": {
+                "column": 33, 
+                "line": 547
+            }, 
+            "returnType": "void", 
+            "type": null
+        }, 
+        {
+            "modifiers": [
+                "private", 
+                "static", 
+                "testMethod"
+            ], 
+            "name": "testCalculateTotalRevenueOnBulkUpdate", 
+            "parameters": [], 
+            "visibility": "PRIVATE", 
+            "references": [], 
+            "location": {
+                "column": 33, 
+                "line": 569
             }, 
             "returnType": "void", 
             "type": null

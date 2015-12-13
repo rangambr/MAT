@@ -13,7 +13,7 @@ public with sharing class TestDataFactory {
 		
 		if(numberOfRecords != null && numberOfRecords > 0){
 			for(Integer i = 0; i < numberOfRecords; i++){
-				campaigns.add(new Campaign(Name = 'testCampaign '+i, Description = 'Test Description '+i, IsActive = true));
+				campaigns.add(createCampaign('Test Name'+i, 'Test Description'+i));
 			}
 		}
 		return campaigns;
@@ -32,7 +32,7 @@ public with sharing class TestDataFactory {
 		
 		if(numberOfRecords != null && numberOfRecords > 0){
 			for(Integer i = 0; i < numberOfRecords; i++){
-				showTimes.add(new Showtime__c(Name = 'testShowTime '+i, Date__c = showdate, Location__c = location, Meal__c = meal));
+				showTimes.add(createShowTime('Test Name'+i,showdate, location, meal));
 			}
 		}
 		return showTimes;
@@ -50,7 +50,7 @@ public with sharing class TestDataFactory {
 		
 		if(numberOfRecords != null && numberOfRecords > 0){
 			for(Integer i = 0; i < numberOfRecords; i++){
-				tables.add(new Table__c(Name = 'testTable '+i, Location__c = location, Section__c = section, Seats__c = seats));
+				tables.add(createTable('Test Name'+i, section, location, seats));
 			}
 		}
 		return tables;
@@ -69,11 +69,58 @@ public with sharing class TestDataFactory {
 		
 		for(Table__c table : tables){
 			for(Showtime__c showTime : showTimes){
-				reservations.add(new Reservation__c(Table__c = table.Id, Showtime__c = showTime.Id, Referred_By__c = campaign.Id, Party_Size__c = partySize));
+				Id campaignId = campaign == null ? null : campaign.Id;
+				reservations.add(createReservation(table.Id, showTime.Id, campaignId, partySize));
 			}
 		}
 		
 		return reservations;
 	}
-	
+
+	/*
+	 * @description This method provides of Campaign instance
+	 * @param String name 
+	 * @param String Description
+	 * @return 	Campaign - campaign instance.	
+	 */
+	public static Campaign createCampaign(String name, String Description){
+		Campaign campaign = new Campaign(Name = name, Description = description, IsActive = true);
+		return campaign;
+	}
+
+	/*
+	 * @description This method provides  of ShowTime instance
+	 * @param Date showdate - date of the Show Time
+	 * @param String location - location of the Show Time
+	 * @param String meal - meal - Lunch or Dinner at the Show Time
+	 * @return 	Showtime__c - show time instance.	
+	 */
+	public static Showtime__c createShowTime(String name, Date showDate, String location, String meal){
+		Showtime__c showTime = new Showtime__c(Name = name, Date__c = showdate, Location__c = location, Meal__c = meal);
+		return showTime;
+	}
+
+	/*
+	 * @description This method provides of Table instance
+	 * @param String section - Section of the $10 - Pauper, $15 - Duke & Duchess, $20 - Princess & Prince or $25 - Queen & King
+	 * @param Integer seats - number of seats for the Table
+	 * @return 	Table__c - Table instance.	
+	 */
+	public static Table__c createTable(String name, String section, String location, Integer seats){
+		Table__c table = new Table__c(Name = name, Location__c = location, Section__c = section, Seats__c = seats);
+		return table;
+	}
+
+	/*
+	 * @description This method provides of Reservation instance
+	 * @param Id table - Tables which needs reserving
+	 * @param Id showtime showTimes - ShowTimes for reserving
+	 * @param Id campaign - Campaign which refered by
+	 * @param Integer partySize - Number of guests for each reservation
+	 * @return 	Reservation__c - Reservation instance.	
+	 */
+	public static Reservation__c createReservation(Id table, Id showtime, Id campaign, Integer partySize){
+		Reservation__c reservation = new Reservation__c(Showtime__c = showTime, Table__c = table, Referred_By__c = campaign, Party_Size__c = partySize);
+		return reservation;
+	}
 }

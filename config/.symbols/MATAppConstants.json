@@ -1,33 +1,188 @@
 {
-    "properties": [], 
-    "externalReferences": [], 
-    "innerClasses": [
+    "properties": [
         {
-            "properties": [], 
-            "externalReferences": [], 
-            "innerClasses": [], 
-            "interfaces": [], 
-            "constructors": [], 
-            "namespace": null, 
-            "name": "CALCMODE", 
-            "tableDeclaration": {
-                "type": "CALCMODE", 
-                "modifiers": [
-                    "public"
-                ], 
-                "references": [], 
-                "location": {
-                    "column": 14, 
-                    "line": 3
-                }, 
-                "name": "CALCMODE"
+            "modifiers": [
+                "static", 
+                "public", 
+                "final"
+            ], 
+            "name": "LOCATION_BOSTON", 
+            "visibility": "PUBLIC", 
+            "references": [], 
+            "location": {
+                "column": 29, 
+                "line": 10
             }, 
-            "key": null, 
-            "variables": [], 
-            "id": null, 
-            "methods": []
+            "type": "String"
+        }, 
+        {
+            "modifiers": [
+                "static", 
+                "public", 
+                "final"
+            ], 
+            "name": "LOCATION_CHICAGO", 
+            "visibility": "PUBLIC", 
+            "references": [], 
+            "location": {
+                "column": 29, 
+                "line": 11
+            }, 
+            "type": "String"
+        }, 
+        {
+            "modifiers": [
+                "static", 
+                "public", 
+                "final"
+            ], 
+            "name": "LOCATION_LA", 
+            "visibility": "PUBLIC", 
+            "references": [], 
+            "location": {
+                "column": 29, 
+                "line": 12
+            }, 
+            "type": "String"
+        }, 
+        {
+            "modifiers": [
+                "static", 
+                "public", 
+                "final"
+            ], 
+            "name": "LOCATION_NY", 
+            "visibility": "PUBLIC", 
+            "references": [], 
+            "location": {
+                "column": 29, 
+                "line": 13
+            }, 
+            "type": "String"
+        }, 
+        {
+            "modifiers": [
+                "static", 
+                "public", 
+                "final"
+            ], 
+            "name": "LOCATION_ORLANDO", 
+            "visibility": "PUBLIC", 
+            "references": [], 
+            "location": {
+                "column": 29, 
+                "line": 14
+            }, 
+            "type": "String"
+        }, 
+        {
+            "modifiers": [
+                "static", 
+                "public", 
+                "final"
+            ], 
+            "name": "LOCATION_SANJOSE", 
+            "visibility": "PUBLIC", 
+            "references": [], 
+            "location": {
+                "column": 29, 
+                "line": 15
+            }, 
+            "type": "String"
+        }, 
+        {
+            "modifiers": [
+                "static", 
+                "public", 
+                "final"
+            ], 
+            "name": "SECTION_10", 
+            "visibility": "PUBLIC", 
+            "references": [], 
+            "location": {
+                "column": 29, 
+                "line": 17
+            }, 
+            "type": "String"
+        }, 
+        {
+            "modifiers": [
+                "static", 
+                "public", 
+                "final"
+            ], 
+            "name": "SECTION_15", 
+            "visibility": "PUBLIC", 
+            "references": [], 
+            "location": {
+                "column": 29, 
+                "line": 18
+            }, 
+            "type": "String"
+        }, 
+        {
+            "modifiers": [
+                "static", 
+                "public", 
+                "final"
+            ], 
+            "name": "SECTION_20", 
+            "visibility": "PUBLIC", 
+            "references": [], 
+            "location": {
+                "column": 29, 
+                "line": 19
+            }, 
+            "type": "String"
+        }, 
+        {
+            "modifiers": [
+                "static", 
+                "public", 
+                "final"
+            ], 
+            "name": "SECTION_25", 
+            "visibility": "PUBLIC", 
+            "references": [], 
+            "location": {
+                "column": 29, 
+                "line": 20
+            }, 
+            "type": "String"
+        }, 
+        {
+            "modifiers": [
+                "static", 
+                "public", 
+                "final"
+            ], 
+            "name": "MEAL_LUNCH", 
+            "visibility": "PUBLIC", 
+            "references": [], 
+            "location": {
+                "column": 29, 
+                "line": 22
+            }, 
+            "type": "String"
+        }, 
+        {
+            "modifiers": [
+                "static", 
+                "public", 
+                "final"
+            ], 
+            "name": "MEAL_DINNER", 
+            "visibility": "PUBLIC", 
+            "references": [], 
+            "location": {
+                "column": 29, 
+                "line": 23
+            }, 
+            "type": "String"
         }
     ], 
+    "externalReferences": [], 
+    "innerClasses": [], 
     "interfaces": [], 
     "constructors": [], 
     "namespace": null, 
@@ -41,12 +196,12 @@
         "references": [], 
         "location": {
             "column": 27, 
-            "line": 1
+            "line": 4
         }, 
         "name": "MATAppConstants"
     }, 
-    "key": "01pq00000000X3SAAU", 
+    "key": "01pq00000000Xf7AAE", 
     "variables": [], 
-    "id": "01pq00000000X3SAAU", 
+    "id": "01pq00000000Xf7AAE", 
     "methods": []
 }

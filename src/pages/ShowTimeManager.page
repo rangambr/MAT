@@ -1,0 +1,120 @@
+<!--
+/**
+ * @description Overrides the Edit and New view of the Showtime object. Allows users to create/edit a 
+ *				Showtime, create/edit Reservations for selected showtime. Also view table section
+ *				vs attendance chart. 
+ */
+-->
+<apex:page standardController="Showtime__c" extensions="ShowTimeManager">
+
+    <apex:stylesheet value="{!$Resource.ShowtimeManagerStyles}"/>
+
+    <apex:sectionHeader title="{!$ObjectType.Showtime__c.Label} Manager" subtitle="{!IF(Showtime__c.Id == NULL,'New'&' '&$ObjectType.Showtime__c.Label, Showtime__c.Name)}" />
+    
+    <apex:form >
+
+    <apex:pageBlock title="{!$ObjectType.Showtime__c.Label} Details">
+        
+            <apex:pageMessages id="pgMessage"/>
+
+            <apex:pageBlockButtons location="top">
+                <apex:commandButton action="{!save}" value="Save"/>
+                <apex:commandButton action="{!cancel}" value="Cancel"/>
+            </apex:pageBlockButtons>
+
+            <apex:pageBlockSection title="{!$ObjectType.Showtime__c.Label} Information" collapsible="false" columns="2">
+                <apex:inputField required="true" value="{!Showtime__c.Name}"/>
+                <apex:inputField required="true" value="{!Showtime__c.Date__c}"/>
+                <!--Not a given requirement but to keep the logic consistant when the location is changed
+				chart and related tables are refreshed so that tables for selected location are only displayed. -->
+                <apex:inputField required="true" value="{!Showtime__c.Location__c}">
+                    <apex:actionSupport event="onchange" action="{!setupTableSet}" rerender="tablesSection, chartSection"/>
+                </apex:inputField>
+
+                <apex:inputField required="true" value="{!Showtime__c.Meal__c}"/>
+                <apex:outputField value="{!Showtime__c.Total_Revenue__c}"/>
+            </apex:pageBlockSection>
+
+            <!-- Action region so that ajax function can only post back the chart and table.
+            This allows users to navigate tables without filling in mandatory showtime info. -->
+            <apex:actionRegion>
+
+                <apex:pageBlockSection id="chartSection" title="Section Chart" collapsible="false" columns="1">
+                	<!-- If there is no data to display in a chart, display a message-->
+                    <apex:pageMessage rendered="{!chartData.size == 0}" summary="{!$Label.NoReservationErrorChart}" severity="ERROR" strength="0"/>
+
+                    <apex:outputPanel styleClass="processor">
+                            <apex:actionStatus id="fetchStatus" startText="Loading..." stopText=""/>
+                        </apex:outputPanel>
+
+                    <!-- Visualforce chart - Attendance(Total Party Size vs. Table Sections)-->
+                    <apex:chart hidden="false" height="200" width="100%" rendered="{!chartData.size > 0}" data="{!chartData}">
+                        <apex:axis type="Numeric" position="right" fields="attendance" title="Attendance" grid="false"/>
+                        <apex:axis type="Category" position="bottom" fields="section" title="Tickets"/>
+                        <apex:barSeries orientation="vertical" axis="right" xField="section" yField="attendance"/>
+                    </apex:chart>
+
+                </apex:pageBlockSection>
+
+                <apex:pageBlockSection id="tablesSection" title="{!$ObjectType.Table__c.LabelPlural}" collapsible="false" columns="1">
+                    
+                    <!-- Table Section filter. On change of the table  section, chart and related tables are filtered. Select Options are dynamically genereted from the picklist values for Section__c on Table__c object. Default option is --Any Type-- -->
+                    <apex:pageBlockSectionItem >
+                        <apex:outputLabel value="Section" for="tableSectionSelect"/>
+                        
+                        <apex:selectList size="1" multiselect="false" id="tableSectionSelect" value="{!selectedSection}">
+                            <apex:actionSupport event="onchange" action="{!setupTableSet}" rerender="tablesSection, chartSection" status="fetchStatus"/>
+                            <apex:selectOptions value="{!sectionFilter}"/>
+                            
+                        </apex:selectList>
+                    </apex:pageBlockSectionItem>
+
+                    <!-- Tables related to this Showtime location. Displayed only 5 per page. User can navigate the full list. Standard Set controller supports data retreival, pagination and navigation.-->
+                    <apex:pageBlockTable value="{!reservations}" var="reservation">
+                    
+                        <apex:column headerValue="{!$ObjectType.Reservation__c.fields.Party_Size__c.Label}">
+                            <!-- Chart is refreshed when Party Size is changed. Refreshing of the chart is blocked if users enter null(empty) as the party size-->
+                            <apex:inputField value="{!reservation.Party_Size__c}">
+                            	<apex:actionSupport event="onchange" rerender="pgMessage,chartSection" status="fetchStatus"/>
+                            </apex:inputField>
+                        </apex:column>
+
+                        <apex:column headerValue="{!$ObjectType.Reservation__c.fields.Referred_By__c.Label}">
+                            <apex:inputField value="{!reservation.Referred_By__c}"/>
+                        </apex:column>
+
+                        <apex:column value="{!reservation.Table__r.Seats__c}"/>
+
+                        <apex:column headerValue="{!$ObjectType.Reservation__c.fields.Table__c.Label}">
+                            <apex:outputLink value="{!URLFOR($Action.Table__c.View, reservation.Table__c)}" target="_blank">
+                                <apex:outputField value="{!reservation.Table__r.Name}"/>
+                            </apex:outputLink>
+                        </apex:column>
+
+                        <apex:column value="{!reservation.Table__r.Section__c}"/>
+                        <apex:column value="{!reservation.Table__r.Location__c}"/>
+                    </apex:pageBlockTable>
+
+                    <!-- Navigation panel. Allows users to navigate through Tables.-->
+                    <apex:panelGrid columns="6" styleClass="buttonPanel">
+
+                        <apex:commandButton status="fetchStatus" reRender="tablesSection, chartSection" value="|< First" action="{!first}" disabled="{!!hasPrevious}" title="First"/>
+                        <apex:commandButton status="fetchStatus" reRender="tablesSection, chartSection" value="Previous" action="{!previous}" disabled="{!!hasPrevious}" title="Previous"/>
+
+                        <!-- Display the current page and total number of pages-->
+                        <apex:outputText value="{!pageNumber} of {!CEILING(totalNoOfRecords / pageSize)}"/>
+
+                        <apex:commandButton status="fetchStatus" reRender="tablesSection, chartSection" value="Next" action="{!next}" disabled="{!!hasNext}" title="Next"/>
+                        <apex:commandButton status="fetchStatus" reRender="tablesSection, chartSection" value="Last >|" action="{!last}" disabled="{!!hasNext}" title="Last"/>
+                        
+                    </apex:panelGrid>
+
+                </apex:pageBlockSection>
+
+            </apex:actionRegion>
+
+    </apex:pageBlock>
+
+    </apex:form>
+
+</apex:page>
