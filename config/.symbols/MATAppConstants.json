@@ -96,12 +96,12 @@
                 "public", 
                 "final"
             ], 
-            "name": "SECTION_10", 
+            "name": "LOCATION_ALL", 
             "visibility": "PUBLIC", 
             "references": [], 
             "location": {
                 "column": 29, 
-                "line": 17
+                "line": 16
             }, 
             "type": "String"
         }, 
@@ -111,7 +111,7 @@
                 "public", 
                 "final"
             ], 
-            "name": "SECTION_15", 
+            "name": "SECTION_10", 
             "visibility": "PUBLIC", 
             "references": [], 
             "location": {
@@ -126,7 +126,7 @@
                 "public", 
                 "final"
             ], 
-            "name": "SECTION_20", 
+            "name": "SECTION_15", 
             "visibility": "PUBLIC", 
             "references": [], 
             "location": {
@@ -141,7 +141,7 @@
                 "public", 
                 "final"
             ], 
-            "name": "SECTION_25", 
+            "name": "SECTION_20", 
             "visibility": "PUBLIC", 
             "references": [], 
             "location": {
@@ -156,12 +156,27 @@
                 "public", 
                 "final"
             ], 
+            "name": "SECTION_25", 
+            "visibility": "PUBLIC", 
+            "references": [], 
+            "location": {
+                "column": 29, 
+                "line": 21
+            }, 
+            "type": "String"
+        }, 
+        {
+            "modifiers": [
+                "static", 
+                "public", 
+                "final"
+            ], 
             "name": "MEAL_LUNCH", 
             "visibility": "PUBLIC", 
             "references": [], 
             "location": {
                 "column": 29, 
-                "line": 22
+                "line": 23
             }, 
             "type": "String"
         }, 
@@ -176,7 +191,37 @@
             "references": [], 
             "location": {
                 "column": 29, 
-                "line": 23
+                "line": 24
+            }, 
+            "type": "String"
+        }, 
+        {
+            "modifiers": [
+                "static", 
+                "public", 
+                "final"
+            ], 
+            "name": "RESERVATION_TAKER_PROFILE", 
+            "visibility": "PUBLIC", 
+            "references": [], 
+            "location": {
+                "column": 29, 
+                "line": 26
+            }, 
+            "type": "String"
+        }, 
+        {
+            "modifiers": [
+                "static", 
+                "public", 
+                "final"
+            ], 
+            "name": "MARKETING_MANAGER_PROFILE", 
+            "visibility": "PUBLIC", 
+            "references": [], 
+            "location": {
+                "column": 29, 
+                "line": 27
             }, 
             "type": "String"
         }

@@ -117,7 +117,7 @@
             "references": [], 
             "location": {
                 "column": 57, 
-                "line": 88
+                "line": 89
             }, 
             "name": "showTimeIds"
         }, 
@@ -127,7 +127,7 @@
             "references": [], 
             "location": {
                 "column": 91, 
-                "line": 88
+                "line": 89
             }, 
             "name": "reservations"
         }, 
@@ -137,7 +137,7 @@
             "references": [], 
             "location": {
                 "column": 22, 
-                "line": 91
+                "line": 92
             }, 
             "name": "showTimesToUpdate"
         }, 
@@ -147,7 +147,7 @@
             "references": [], 
             "location": {
                 "column": 20, 
-                "line": 92
+                "line": 93
             }, 
             "name": "totalRevPerShowTime"
         }, 
@@ -157,7 +157,7 @@
             "references": [], 
             "location": {
                 "column": 22, 
-                "line": 94
+                "line": 95
             }, 
             "name": "reservationsByShowTime"
         }, 
@@ -167,7 +167,7 @@
             "references": [], 
             "location": {
                 "column": 26, 
-                "line": 98
+                "line": 102
             }, 
             "name": "reservationByShowTime"
         }, 
@@ -177,7 +177,7 @@
             "references": [], 
             "location": {
                 "column": 12, 
-                "line": 103
+                "line": 107
             }, 
             "name": "showTimeId"
         }, 
@@ -187,7 +187,7 @@
             "references": [], 
             "location": {
                 "column": 24, 
-                "line": 117
+                "line": 121
             }, 
             "name": "reservation"
         }, 
@@ -197,7 +197,7 @@
             "references": [], 
             "location": {
                 "column": 58, 
-                "line": 133
+                "line": 146
             }, 
             "name": "campaignIds"
         }, 
@@ -207,7 +207,7 @@
             "references": [], 
             "location": {
                 "column": 92, 
-                "line": 133
+                "line": 146
             }, 
             "name": "reservations"
         }, 
@@ -217,7 +217,7 @@
             "references": [], 
             "location": {
                 "column": 19, 
-                "line": 137
+                "line": 150
             }, 
             "name": "campaignsToUpdate"
         }, 
@@ -227,29 +227,9 @@
             "references": [], 
             "location": {
                 "column": 22, 
-                "line": 138
-            }, 
-            "name": "reservationsByCampaigns"
-        }, 
-        {
-            "type": "Reservation__c", 
-            "modifiers": [], 
-            "references": [], 
-            "location": {
-                "column": 24, 
-                "line": 146
-            }, 
-            "name": "reservation"
-        }, 
-        {
-            "type": "Reservation__c", 
-            "modifiers": [], 
-            "references": [], 
-            "location": {
-                "column": 24, 
                 "line": 151
             }, 
-            "name": "reservation"
+            "name": "reservationsByCampaigns"
         }, 
         {
             "type": "Map", 
@@ -257,7 +237,7 @@
             "references": [], 
             "location": {
                 "column": 22, 
-                "line": 157
+                "line": 156
             }, 
             "name": "currentReferralsPerCampaign"
         }, 
@@ -287,7 +267,17 @@
             "references": [], 
             "location": {
                 "column": 24, 
-                "line": 179
+                "line": 182
+            }, 
+            "name": "reservation"
+        }, 
+        {
+            "type": "Reservation__c", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 24, 
+                "line": 187
             }, 
             "name": "reservation"
         }
@@ -360,7 +350,7 @@
             "references": [], 
             "location": {
                 "column": 22, 
-                "line": 88
+                "line": 89
             }, 
             "returnType": "void", 
             "type": null
@@ -385,7 +375,7 @@
             "references": [], 
             "location": {
                 "column": 22, 
-                "line": 133
+                "line": 146
             }, 
             "returnType": "void", 
             "type": null

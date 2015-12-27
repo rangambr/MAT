@@ -21,7 +21,7 @@
         "id": "01pq00000000Xf7AAE", 
         "lastModifiedById": "00515000005zvs4AAA", 
         "lastModifiedByName": "Certification Candidate", 
-        "lastModifiedDate": "2015-12-06 16:52:09", 
+        "lastModifiedDate": "2015-12-27 14:02:36", 
         "mmState": "clean", 
         "type": "ApexClass"
     }, 
@@ -47,7 +47,33 @@
         "id": "01pq00000000bMYAAY", 
         "lastModifiedById": "00515000005zvs4AAA", 
         "lastModifiedByName": "Certification Candidate", 
-        "lastModifiedDate": "2015-12-13 12:50:37", 
+        "lastModifiedDate": "2015-12-27 20:45:36", 
+        "mmState": "clean", 
+        "type": "ApexClass"
+    }, 
+    "ReservationCampaignHelper.cls": {
+        "createdById": "00515000005zvs4AAA", 
+        "createdByName": "Certification Candidate", 
+        "createdDate": "2015-12-21 18:43:12", 
+        "fileName": "unpackaged/classes/ReservationCampaignHelper.cls", 
+        "fullName": "ReservationCampaignHelper", 
+        "id": "01pq00000000ewoAAA", 
+        "lastModifiedById": "00515000005zvs4AAA", 
+        "lastModifiedByName": "Certification Candidate", 
+        "lastModifiedDate": "2015-12-25 14:25:39", 
+        "mmState": "clean", 
+        "type": "ApexClass"
+    }, 
+    "ReservationCampaignHelperTest.cls": {
+        "createdById": "00515000005zvs4AAA", 
+        "createdByName": "Certification Candidate", 
+        "createdDate": "2015-12-23 20:08:03", 
+        "fileName": "unpackaged/classes/ReservationCampaignHelperTest.cls", 
+        "fullName": "ReservationCampaignHelperTest", 
+        "id": "01pq00000000gE5AAI", 
+        "lastModifiedById": "00515000005zvs4AAA", 
+        "lastModifiedByName": "Certification Candidate", 
+        "lastModifiedDate": "2015-12-27 14:59:26", 
         "mmState": "clean", 
         "type": "ApexClass"
     }, 
@@ -112,7 +138,7 @@
         "id": "01qq00000008hvWAAQ", 
         "lastModifiedById": "00515000005zvs4AAA", 
         "lastModifiedByName": "Certification Candidate", 
-        "lastModifiedDate": "2015-12-05 19:55:21", 
+        "lastModifiedDate": "2015-12-27 20:42:52", 
         "mmState": "clean", 
         "type": "ApexTrigger"
     }, 
@@ -125,7 +151,7 @@
         "id": "01pq0000000AnF8AAK", 
         "lastModifiedById": "00515000005zvs4AAA", 
         "lastModifiedByName": "Certification Candidate", 
-        "lastModifiedDate": "2015-12-06 23:42:18", 
+        "lastModifiedDate": "2015-12-25 13:01:43", 
         "mmState": "clean", 
         "type": "ApexClass"
     }, 
@@ -138,7 +164,7 @@
         "id": "01pq0000000AnFDAA0", 
         "lastModifiedById": "00515000005zvs4AAA", 
         "lastModifiedByName": "Certification Candidate", 
-        "lastModifiedDate": "2015-12-06 23:48:05", 
+        "lastModifiedDate": "2015-12-27 20:25:09", 
         "mmState": "clean", 
         "type": "ApexClass"
     }, 
@@ -151,7 +177,7 @@
         "id": "01pq00000000aZgAAI", 
         "lastModifiedById": "00515000005zvs4AAA", 
         "lastModifiedByName": "Certification Candidate", 
-        "lastModifiedDate": "2015-12-13 12:39:03", 
+        "lastModifiedDate": "2015-12-27 20:30:39", 
         "mmState": "clean", 
         "type": "ApexClass"
     }, 
@@ -164,7 +190,7 @@
         "id": "066q00000008cQ3AAI", 
         "lastModifiedById": "00515000005zvs4AAA", 
         "lastModifiedByName": "Certification Candidate", 
-        "lastModifiedDate": "2015-12-13 13:04:24", 
+        "lastModifiedDate": "2015-12-27 20:32:29", 
         "mmState": "clean", 
         "type": "ApexPage"
     }, 
@@ -177,7 +203,7 @@
         "id": "01pq00000000bG1AAI", 
         "lastModifiedById": "00515000005zvs4AAA", 
         "lastModifiedByName": "Certification Candidate", 
-        "lastModifiedDate": "2015-12-12 22:45:26", 
+        "lastModifiedDate": "2015-12-27 22:46:47", 
         "mmState": "clean", 
         "type": "ApexClass"
     }, 
@@ -190,7 +216,7 @@
         "id": "01pq0000000AnFNAA0", 
         "lastModifiedById": "00515000005zvs4AAA", 
         "lastModifiedByName": "Certification Candidate", 
-        "lastModifiedDate": "2015-12-06 23:52:04", 
+        "lastModifiedDate": "2015-12-27 14:00:10", 
         "mmState": "clean", 
         "type": "ApexClass"
     }

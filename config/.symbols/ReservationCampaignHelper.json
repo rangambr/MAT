@@ -1,0 +1,69 @@
+{
+    "properties": [], 
+    "externalReferences": [], 
+    "innerClasses": [], 
+    "interfaces": [], 
+    "constructors": [], 
+    "namespace": null, 
+    "name": "ReservationCampaignHelper", 
+    "tableDeclaration": {
+        "type": "ReservationCampaignHelper", 
+        "modifiers": [
+            "public", 
+            "without sharing"
+        ], 
+        "references": [], 
+        "location": {
+            "column": 30, 
+            "line": 9
+        }, 
+        "name": "ReservationCampaignHelper"
+    }, 
+    "key": "01pq00000000ewoAAA", 
+    "variables": [
+        {
+            "type": "Set", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 75, 
+                "line": 11
+            }, 
+            "name": "campaignIds"
+        }, 
+        {
+            "type": "LIST", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 21, 
+                "line": 12
+            }, 
+            "name": "reservationsByCampaigns"
+        }
+    ], 
+    "id": "01pq00000000ewoAAA", 
+    "methods": [
+        {
+            "modifiers": [
+                "static", 
+                "public"
+            ], 
+            "name": "getAllReservationsByCampaign", 
+            "parameters": [
+                {
+                    "type": "Set", 
+                    "name": "campaignIds"
+                }
+            ], 
+            "visibility": "PUBLIC", 
+            "references": [], 
+            "location": {
+                "column": 38, 
+                "line": 11
+            }, 
+            "returnType": "LIST", 
+            "type": null
+        }
+    ]
+}

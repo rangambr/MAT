@@ -8,7 +8,7 @@
  */
 trigger ReservationTrigger on Reservation__c (after insert, after update, after delete, after undelete) {
 	//Revenues/Referrals are cacluated in after triggers to ensure data integrety.
-	//Also check MATAppSettings to ensure trigger is enabled. This can be overritten during unit testing
+	//Also check MATAppSettings to ensure trigger is enabled. This can be overridden during unit testing
 	//to ensure trigger is not executing during test data creation.
 	if(Trigger.isAfter && MATAppSettings.IsReservationTriggerEnabled){
 		
@@ -20,7 +20,6 @@ trigger ReservationTrigger on Reservation__c (after insert, after update, after 
 
 		} else if(Trigger.isDelete){
 			ReservationTriggerHelper.calculateRevenueAndReferrals(Trigger.oldMap);
-
 		}
 	}
 }

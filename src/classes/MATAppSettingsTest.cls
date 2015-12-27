@@ -1,5 +1,10 @@
 @isTest
 private class MATAppSettingsTest {
+
+	private static testmethod void testReservationTriggerEnabled(){
+		System.assertEquals(true, MATAppSettings.IsReservationTriggerEnabled, 
+			'Reservation trigger must be enabled to calculate Revenue and Referrals.');
+	}
 	
 	private static testmethod void testTableLocations() {
 		List<String> locations = MATAppSettings.tableLocations;

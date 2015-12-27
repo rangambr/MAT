@@ -1,42 +1,13 @@
 {
-    "properties": [
-        {
-            "modifiers": [
-                "private", 
-                "static"
-            ], 
-            "name": "showTime", 
-            "visibility": "PRIVATE", 
-            "references": [], 
-            "location": {
-                "column": 29, 
-                "line": 11
-            }, 
-            "type": "Showtime__c"
-        }, 
-        {
-            "modifiers": [
-                "private", 
-                "static"
-            ], 
-            "name": "campaign", 
-            "visibility": "PRIVATE", 
-            "references": [], 
-            "location": {
-                "column": 26, 
-                "line": 12
-            }, 
-            "type": "Campaign"
-        }
-    ], 
+    "properties": [], 
     "externalReferences": [], 
     "innerClasses": [], 
     "interfaces": [], 
     "constructors": [], 
     "namespace": null, 
-    "name": "ReservationTriggerHelperTest", 
+    "name": "ShowtimeManagerTest", 
     "tableDeclaration": {
-        "type": "ReservationTriggerHelperTest", 
+        "type": "ShowtimeManagerTest", 
         "modifiers": [
             "private", 
             "testMethod"
@@ -44,61 +15,81 @@
         "references": [], 
         "location": {
             "column": 15, 
-            "line": 9
+            "line": 7
         }, 
-        "name": "ReservationTriggerHelperTest"
+        "name": "ShowtimeManagerTest"
     }, 
-    "key": "01pq0000000AnFDAA0", 
+    "key": "01pq00000000bG1AAI", 
     "variables": [
         {
-            "type": "Table__c", 
+            "type": "Showtime__c", 
             "modifiers": [], 
             "references": [], 
             "location": {
-                "column": 12, 
-                "line": 27
+                "column": 15, 
+                "line": 18
             }, 
-            "name": "table"
-        }, 
-        {
-            "type": "Reservation__c", 
-            "modifiers": [], 
-            "references": [], 
-            "location": {
-                "column": 18, 
-                "line": 31
-            }, 
-            "name": "reservation"
+            "name": "show"
         }, 
         {
             "type": "LIST", 
             "modifiers": [], 
             "references": [], 
             "location": {
-                "column": 21, 
+                "column": 18, 
+                "line": 22
+            }, 
+            "name": "tables1"
+        }, 
+        {
+            "type": "LIST", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 18, 
+                "line": 26
+            }, 
+            "name": "tables2"
+        }, 
+        {
+            "type": "LIST", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 18, 
+                "line": 30
+            }, 
+            "name": "tables3"
+        }, 
+        {
+            "type": "LIST", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 24, 
+                "line": 34
+            }, 
+            "name": "reservations"
+        }, 
+        {
+            "type": "Table__c", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 16, 
+                "line": 36
+            }, 
+            "name": "tb"
+        }, 
+        {
+            "type": "Table__c", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 16, 
                 "line": 40
             }, 
-            "name": "showTimes"
-        }, 
-        {
-            "type": "LIST", 
-            "modifiers": [], 
-            "references": [], 
-            "location": {
-                "column": 18, 
-                "line": 44
-            }, 
-            "name": "tables"
-        }, 
-        {
-            "type": "LIST", 
-            "modifiers": [], 
-            "references": [], 
-            "location": {
-                "column": 24, 
-                "line": 48
-            }, 
-            "name": "reservations"
+            "name": "tb"
         }, 
         {
             "type": "Showtime__c", 
@@ -106,49 +97,29 @@
             "references": [], 
             "location": {
                 "column": 15, 
-                "line": 64
+                "line": 53
             }, 
-            "name": "show"
+            "name": "showtime"
         }, 
         {
-            "type": "Table__c", 
+            "type": "StandardController", 
             "modifiers": [], 
             "references": [], 
             "location": {
-                "column": 12, 
-                "line": 68
+                "column": 32, 
+                "line": 54
             }, 
-            "name": "table"
+            "name": "std"
         }, 
         {
-            "type": "Reservation__c", 
+            "type": "ShowTimeManager", 
             "modifiers": [], 
             "references": [], 
             "location": {
-                "column": 18, 
-                "line": 73
+                "column": 19, 
+                "line": 55
             }, 
-            "name": "reservation"
-        }, 
-        {
-            "type": "LIST", 
-            "modifiers": [], 
-            "references": [], 
-            "location": {
-                "column": 21, 
-                "line": 87
-            }, 
-            "name": "showTimes"
-        }, 
-        {
-            "type": "LIST", 
-            "modifiers": [], 
-            "references": [], 
-            "location": {
-                "column": 18, 
-                "line": 91
-            }, 
-            "name": "tables"
+            "name": "showManager"
         }, 
         {
             "type": "LIST", 
@@ -156,7 +127,7 @@
             "references": [], 
             "location": {
                 "column": 24, 
-                "line": 95
+                "line": 65
             }, 
             "name": "reservations"
         }, 
@@ -165,10 +136,10 @@
             "modifiers": [], 
             "references": [], 
             "location": {
-                "column": 18, 
-                "line": 106
+                "column": 22, 
+                "line": 70
             }, 
-            "name": "reservation"
+            "name": "rs"
         }, 
         {
             "type": "Showtime__c", 
@@ -176,29 +147,49 @@
             "references": [], 
             "location": {
                 "column": 15, 
-                "line": 120
+                "line": 82
             }, 
-            "name": "show"
+            "name": "showtime"
+        }, 
+        {
+            "type": "StandardController", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 32, 
+                "line": 84
+            }, 
+            "name": "std"
+        }, 
+        {
+            "type": "ShowTimeManager", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 19, 
+                "line": 85
+            }, 
+            "name": "showManager"
+        }, 
+        {
+            "type": "LIST", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 24, 
+                "line": 92
+            }, 
+            "name": "existingReservations"
         }, 
         {
             "type": "Reservation__c", 
             "modifiers": [], 
             "references": [], 
             "location": {
-                "column": 18, 
-                "line": 134
+                "column": 22, 
+                "line": 94
             }, 
-            "name": "resWith20Revenue1"
-        }, 
-        {
-            "type": "Reservation__c", 
-            "modifiers": [], 
-            "references": [], 
-            "location": {
-                "column": 18, 
-                "line": 137
-            }, 
-            "name": "resWith20Revenue2"
+            "name": "res"
         }, 
         {
             "type": "Showtime__c", 
@@ -206,29 +197,249 @@
             "references": [], 
             "location": {
                 "column": 15, 
+                "line": 108
+            }, 
+            "name": "showtime"
+        }, 
+        {
+            "type": "StandardController", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 32, 
+                "line": 110
+            }, 
+            "name": "std"
+        }, 
+        {
+            "type": "ShowTimeManager", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 19, 
+                "line": 111
+            }, 
+            "name": "showManager"
+        }, 
+        {
+            "type": "LIST", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 24, 
+                "line": 113
+            }, 
+            "name": "rs1"
+        }, 
+        {
+            "type": "Set", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 11, 
+                "line": 114
+            }, 
+            "name": "tableIds"
+        }, 
+        {
+            "type": "Reservation__c", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 22, 
+                "line": 116
+            }, 
+            "name": "res"
+        }, 
+        {
+            "type": "LIST", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 24, 
+                "line": 129
+            }, 
+            "name": "rs2"
+        }, 
+        {
+            "type": "Reservation__c", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 22, 
+                "line": 131
+            }, 
+            "name": "res"
+        }, 
+        {
+            "type": "LIST", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 24, 
                 "line": 142
             }, 
-            "name": "show"
+            "name": "rs3"
         }, 
         {
             "type": "Reservation__c", 
             "modifiers": [], 
             "references": [], 
             "location": {
-                "column": 18, 
-                "line": 168
+                "column": 22, 
+                "line": 144
             }, 
-            "name": "resWith20Revenue1"
+            "name": "res"
+        }, 
+        {
+            "type": "LIST", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 24, 
+                "line": 149
+            }, 
+            "name": "rs4"
         }, 
         {
             "type": "Reservation__c", 
             "modifiers": [], 
             "references": [], 
             "location": {
-                "column": 18, 
-                "line": 171
+                "column": 22, 
+                "line": 151
             }, 
-            "name": "resWith20Revenue2"
+            "name": "res"
+        }, 
+        {
+            "type": "LIST", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 24, 
+                "line": 158
+            }, 
+            "name": "rs5"
+        }, 
+        {
+            "type": "Reservation__c", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 22, 
+                "line": 160
+            }, 
+            "name": "res"
+        }, 
+        {
+            "type": "StandardController", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 32, 
+                "line": 172
+            }, 
+            "name": "std"
+        }, 
+        {
+            "type": "ShowTimeManager", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 19, 
+                "line": 173
+            }, 
+            "name": "showManager"
+        }, 
+        {
+            "type": "LIST", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 22, 
+                "line": 175
+            }, 
+            "name": "sections"
+        }, 
+        {
+            "type": "Integer", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 15, 
+                "line": 181
+            }, 
+            "name": "i"
+        }, 
+        {
+            "type": "StandardController", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 32, 
+                "line": 197
+            }, 
+            "name": "std"
+        }, 
+        {
+            "type": "ShowTimeManager", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 19, 
+                "line": 198
+            }, 
+            "name": "showManager"
+        }, 
+        {
+            "type": "LIST", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 38, 
+                "line": 203
+            }, 
+            "name": "chartData"
+        }, 
+        {
+            "type": "Data", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 36, 
+                "line": 207
+            }, 
+            "name": "dt"
+        }, 
+        {
+            "type": "StandardController", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 32, 
+                "line": 224
+            }, 
+            "name": "std"
+        }, 
+        {
+            "type": "ShowTimeManager", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 19, 
+                "line": 228
+            }, 
+            "name": "showManager"
+        }, 
+        {
+            "type": "PageReference", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 17, 
+                "line": 233
+            }, 
+            "name": "pg"
         }, 
         {
             "type": "Showtime__c", 
@@ -236,9 +447,9 @@
             "references": [], 
             "location": {
                 "column": 15, 
-                "line": 180
+                "line": 235
             }, 
-            "name": "show"
+            "name": "showtime"
         }, 
         {
             "type": "Reservation__c", 
@@ -246,7 +457,7 @@
             "references": [], 
             "location": {
                 "column": 18, 
-                "line": 205
+                "line": 238
             }, 
             "name": "reservation"
         }, 
@@ -256,169 +467,189 @@
             "references": [], 
             "location": {
                 "column": 15, 
-                "line": 211
+                "line": 252
             }, 
-            "name": "show"
+            "name": "showtime"
         }, 
         {
-            "type": "Reservation__c", 
+            "type": "StandardController", 
             "modifiers": [], 
             "references": [], 
             "location": {
-                "column": 18, 
-                "line": 237
+                "column": 32, 
+                "line": 255
+            }, 
+            "name": "std"
+        }, 
+        {
+            "type": "ShowTimeManager", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 19, 
+                "line": 256
+            }, 
+            "name": "showManager"
+        }, 
+        {
+            "type": "LIST", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 20, 
+                "line": 259
             }, 
             "name": "reservation"
         }, 
         {
-            "type": "Campaign", 
+            "type": "LIST", 
             "modifiers": [], 
             "references": [], 
             "location": {
-                "column": 12, 
-                "line": 241
-            }, 
-            "name": "cmp"
-        }, 
-        {
-            "type": "Reservation__c", 
-            "modifiers": [], 
-            "references": [], 
-            "location": {
-                "column": 18, 
-                "line": 266
-            }, 
-            "name": "reservation1"
-        }, 
-        {
-            "type": "Reservation__c", 
-            "modifiers": [], 
-            "references": [], 
-            "location": {
-                "column": 18, 
+                "column": 20, 
                 "line": 269
             }, 
-            "name": "reservation2"
+            "name": "reservationDeleted"
         }, 
         {
-            "type": "Campaign", 
+            "type": "StandardController", 
             "modifiers": [], 
             "references": [], 
             "location": {
-                "column": 12, 
-                "line": 275
+                "column": 32, 
+                "line": 282
             }, 
-            "name": "cmp"
+            "name": "std"
         }, 
         {
-            "type": "Reservation__c", 
+            "type": "ShowTimeManager", 
             "modifiers": [], 
             "references": [], 
             "location": {
-                "column": 18, 
-                "line": 300
+                "column": 19, 
+                "line": 283
             }, 
-            "name": "reservation1"
+            "name": "showManager"
         }, 
         {
-            "type": "Reservation__c", 
+            "type": "StandardController", 
             "modifiers": [], 
             "references": [], 
             "location": {
-                "column": 18, 
-                "line": 303
+                "column": 32, 
+                "line": 319
             }, 
-            "name": "reservation2"
+            "name": "std"
         }, 
         {
-            "type": "Campaign", 
+            "type": "ShowTimeManager", 
             "modifiers": [], 
             "references": [], 
             "location": {
-                "column": 12, 
-                "line": 312
+                "column": 19, 
+                "line": 320
             }, 
-            "name": "cmp"
+            "name": "showManager"
         }, 
         {
-            "type": "Reservation__c", 
+            "type": "LIST", 
             "modifiers": [], 
             "references": [], 
             "location": {
-                "column": 18, 
+                "column": 27, 
+                "line": 325
+            }, 
+            "name": "errorMsgs"
+        }, 
+        {
+            "type": "Showtime__c", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 15, 
                 "line": 337
             }, 
-            "name": "reservation"
+            "name": "showtime"
         }, 
         {
-            "type": "Campaign", 
+            "type": "StandardController", 
             "modifiers": [], 
             "references": [], 
             "location": {
-                "column": 12, 
+                "column": 32, 
+                "line": 341
+            }, 
+            "name": "std"
+        }, 
+        {
+            "type": "ShowTimeManager", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 19, 
                 "line": 342
             }, 
-            "name": "cmp"
+            "name": "showManager"
         }, 
         {
-            "type": "Reservation__c", 
+            "type": "LIST", 
             "modifiers": [], 
             "references": [], 
             "location": {
-                "column": 18, 
-                "line": 367
+                "column": 20, 
+                "line": 345
             }, 
             "name": "reservation"
         }, 
         {
-            "type": "Campaign", 
+            "type": "Showtime__c", 
             "modifiers": [], 
             "references": [], 
             "location": {
-                "column": 12, 
-                "line": 370
+                "column": 15, 
+                "line": 373
             }, 
-            "name": "alternateCampaign"
+            "name": "showtime"
         }, 
         {
-            "type": "Campaign", 
+            "type": "StandardController", 
             "modifiers": [], 
             "references": [], 
             "location": {
-                "column": 12, 
+                "column": 32, 
                 "line": 376
             }, 
-            "name": "initialCampaign"
+            "name": "std"
         }, 
         {
-            "type": "Campaign", 
+            "type": "ShowTimeManager", 
             "modifiers": [], 
             "references": [], 
             "location": {
-                "column": 12, 
+                "column": 19, 
+                "line": 377
+            }, 
+            "name": "showManager"
+        }, 
+        {
+            "type": "PageReference", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 17, 
                 "line": 380
             }, 
-            "name": "altCampaign"
+            "name": "pg"
         }, 
         {
-            "type": "Reservation__c", 
+            "type": "LIST", 
             "modifiers": [], 
             "references": [], 
             "location": {
-                "column": 18, 
-                "line": 410
+                "column": 27, 
+                "line": 384
             }, 
-            "name": "reservation"
-        }, 
-        {
-            "type": "Campaign", 
-            "modifiers": [], 
-            "references": [], 
-            "location": {
-                "column": 12, 
-                "line": 417
-            }, 
-            "name": "cmp"
+            "name": "errorMsgs"
         }, 
         {
             "type": "User", 
@@ -426,9 +657,29 @@
             "references": [], 
             "location": {
                 "column": 8, 
-                "line": 442
+                "line": 395
             }, 
             "name": "reservationTaker"
+        }, 
+        {
+            "type": "StandardController", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 33, 
+                "line": 403
+            }, 
+            "name": "std"
+        }, 
+        {
+            "type": "ShowTimeManager", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 20, 
+                "line": 407
+            }, 
+            "name": "showManager"
         }, 
         {
             "type": "LIST", 
@@ -436,109 +687,169 @@
             "references": [], 
             "location": {
                 "column": 25, 
-                "line": 448
+                "line": 410
             }, 
             "name": "reservations"
         }, 
         {
-            "type": "Campaign", 
+            "type": "Reservation__c", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 23, 
+                "line": 412
+            }, 
+            "name": "reservation"
+        }, 
+        {
+            "type": "PageReference", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 18, 
+                "line": 417
+            }, 
+            "name": "pg"
+        }, 
+        {
+            "type": "LIST", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 18, 
+                "line": 419
+            }, 
+            "name": "show"
+        }, 
+        {
+            "type": "LIST", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 25, 
+                "line": 430
+            }, 
+            "name": "showReservations"
+        }, 
+        {
+            "type": "Reservation__c", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 23, 
+                "line": 435
+            }, 
+            "name": "reservation"
+        }, 
+        {
+            "type": "User", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 8, 
+                "line": 444
+            }, 
+            "name": "reservationTaker"
+        }, 
+        {
+            "type": "Showtime__c", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 16, 
+                "line": 448
+            }, 
+            "name": "show"
+        }, 
+        {
+            "type": "Table__c", 
             "modifiers": [], 
             "references": [], 
             "location": {
                 "column": 13, 
                 "line": 452
             }, 
-            "name": "cmp"
+            "name": "table"
         }, 
         {
-            "type": "User", 
+            "type": "Reservation__c", 
             "modifiers": [], 
             "references": [], 
             "location": {
-                "column": 8, 
-                "line": 474
+                "column": 19, 
+                "line": 456
             }, 
-            "name": "reservationTaker"
+            "name": "reservation"
+        }, 
+        {
+            "type": "StandardController", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 33, 
+                "line": 464
+            }, 
+            "name": "std"
+        }, 
+        {
+            "type": "ShowTimeManager", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 20, 
+                "line": 466
+            }, 
+            "name": "showManager"
+        }, 
+        {
+            "type": "Boolean", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 12, 
+                "line": 469
+            }, 
+            "name": "reservationFound"
         }, 
         {
             "type": "LIST", 
             "modifiers": [], 
             "references": [], 
             "location": {
-                "column": 25, 
-                "line": 478
+                "column": 26, 
+                "line": 473
             }, 
             "name": "reservations"
         }, 
         {
-            "type": "Integer", 
+            "type": "Reservation__c", 
             "modifiers": [], 
             "references": [], 
             "location": {
-                "column": 16, 
-                "line": 480
+                "column": 24, 
+                "line": 475
             }, 
-            "name": "i"
+            "name": "res"
         }, 
         {
-            "type": "Campaign", 
+            "type": "PageReference", 
             "modifiers": [], 
             "references": [], 
             "location": {
-                "column": 13, 
-                "line": 489
+                "column": 18, 
+                "line": 495
             }, 
-            "name": "cmp"
+            "name": "pg"
         }, 
         {
-            "type": "Integer", 
+            "type": "LIST", 
             "modifiers": [], 
             "references": [], 
             "location": {
-                "column": 16, 
-                "line": 493
-            }, 
-            "name": "i"
-        }, 
-        {
-            "type": "Campaign", 
-            "modifiers": [], 
-            "references": [], 
-            "location": {
-                "column": 13, 
+                "column": 18, 
                 "line": 497
             }, 
-            "name": "alternateCampaign"
-        }, 
-        {
-            "type": "Integer", 
-            "modifiers": [], 
-            "references": [], 
-            "location": {
-                "column": 16, 
-                "line": 500
-            }, 
-            "name": "i"
-        }, 
-        {
-            "type": "Integer", 
-            "modifiers": [], 
-            "references": [], 
-            "location": {
-                "column": 16, 
-                "line": 505
-            }, 
-            "name": "i"
-        }, 
-        {
-            "type": "User", 
-            "modifiers": [], 
-            "references": [], 
-            "location": {
-                "column": 8, 
-                "line": 524
-            }, 
-            "name": "reservationTaker"
+            "name": "existingShow"
         }, 
         {
             "type": "LIST", 
@@ -546,220 +857,25 @@
             "references": [], 
             "location": {
                 "column": 25, 
-                "line": 530
+                "line": 508
             }, 
-            "name": "reservations"
-        }, 
-        {
-            "type": "Set", 
-            "modifiers": [], 
-            "references": [], 
-            "location": {
-                "column": 12, 
-                "line": 533
-            }, 
-            "name": "showtimeIds"
-        }, 
-        {
-            "type": "Reservation__c", 
-            "modifiers": [], 
-            "references": [], 
-            "location": {
-                "column": 23, 
-                "line": 535
-            }, 
-            "name": "res"
-        }, 
-        {
-            "type": "LIST", 
-            "modifiers": [], 
-            "references": [], 
-            "location": {
-                "column": 22, 
-                "line": 539
-            }, 
-            "name": "shows"
-        }, 
-        {
-            "type": "Showtime__c", 
-            "modifiers": [], 
-            "references": [], 
-            "location": {
-                "column": 20, 
-                "line": 541
-            }, 
-            "name": "show"
-        }, 
-        {
-            "type": "Showtime__c", 
-            "modifiers": [], 
-            "references": [], 
-            "location": {
-                "column": 20, 
-                "line": 551
-            }, 
-            "name": "show"
-        }, 
-        {
-            "type": "User", 
-            "modifiers": [], 
-            "references": [], 
-            "location": {
-                "column": 8, 
-                "line": 564
-            }, 
-            "name": "reservationTaker"
-        }, 
-        {
-            "type": "LIST", 
-            "modifiers": [], 
-            "references": [], 
-            "location": {
-                "column": 25, 
-                "line": 568
-            }, 
-            "name": "reservations"
-        }, 
-        {
-            "type": "Set", 
-            "modifiers": [], 
-            "references": [], 
-            "location": {
-                "column": 12, 
-                "line": 571
-            }, 
-            "name": "showtimeIds"
-        }, 
-        {
-            "type": "Reservation__c", 
-            "modifiers": [], 
-            "references": [], 
-            "location": {
-                "column": 23, 
-                "line": 575
-            }, 
-            "name": "res"
-        }, 
-        {
-            "type": "LIST", 
-            "modifiers": [], 
-            "references": [], 
-            "location": {
-                "column": 22, 
-                "line": 581
-            }, 
-            "name": "shows"
-        }, 
-        {
-            "type": "Showtime__c", 
-            "modifiers": [], 
-            "references": [], 
-            "location": {
-                "column": 20, 
-                "line": 583
-            }, 
-            "name": "show"
-        }, 
-        {
-            "type": "Reservation__c", 
-            "modifiers": [], 
-            "references": [], 
-            "location": {
-                "column": 18, 
-                "line": 596
-            }, 
-            "name": "res"
-        }, 
-        {
-            "type": "Reservation__c", 
-            "modifiers": [], 
-            "references": [], 
-            "location": {
-                "column": 18, 
-                "line": 615
-            }, 
-            "name": "res"
+            "name": "showReservations"
         }
     ], 
-    "id": "01pq0000000AnFDAA0", 
+    "id": "01pq00000000bG1AAI", 
     "methods": [
         {
             "modifiers": [
                 "private", 
                 "static"
             ], 
-            "name": "createReservationForShowTime", 
+            "name": "setupTestData", 
             "parameters": [], 
             "visibility": "PRIVATE", 
             "references": [], 
             "location": {
-                "column": 32, 
-                "line": 18
-            }, 
-            "returnType": "Reservation__c", 
-            "type": null
-        }, 
-        {
-            "modifiers": [
-                "private", 
-                "static"
-            ], 
-            "name": "createReservationForShowTimeBulk", 
-            "parameters": [], 
-            "visibility": "PRIVATE", 
-            "references": [], 
-            "location": {
-                "column": 38, 
-                "line": 38
-            }, 
-            "returnType": "LIST", 
-            "type": null
-        }, 
-        {
-            "modifiers": [
-                "private", 
-                "static"
-            ], 
-            "name": "createReservationForCampaign", 
-            "parameters": [], 
-            "visibility": "PRIVATE", 
-            "references": [], 
-            "location": {
-                "column": 32, 
-                "line": 57
-            }, 
-            "returnType": "Reservation__c", 
-            "type": null
-        }, 
-        {
-            "modifiers": [
-                "private", 
-                "static"
-            ], 
-            "name": "createReservationsForCampaignBulk", 
-            "parameters": [], 
-            "visibility": "PRIVATE", 
-            "references": [], 
-            "location": {
-                "column": 38, 
-                "line": 80
-            }, 
-            "returnType": "LIST", 
-            "type": null
-        }, 
-        {
-            "modifiers": [
-                "private", 
-                "static", 
-                "testMethod"
-            ], 
-            "name": "testCalculateRevenueOnInsert", 
-            "parameters": [], 
-            "visibility": "PRIVATE", 
-            "references": [], 
-            "location": {
-                "column": 33, 
-                "line": 104
+                "column": 22, 
+                "line": 16
             }, 
             "returnType": "void", 
             "type": null
@@ -770,13 +886,13 @@
                 "static", 
                 "testMethod"
             ], 
-            "name": "testCalculateRevenueOndelete", 
+            "name": "testInitailSetupOnCreateNewShowtime", 
             "parameters": [], 
             "visibility": "PRIVATE", 
             "references": [], 
             "location": {
                 "column": 33, 
-                "line": 131
+                "line": 46
             }, 
             "returnType": "void", 
             "type": null
@@ -787,13 +903,13 @@
                 "static", 
                 "testMethod"
             ], 
-            "name": "testCalculateRevenueOnunDelete", 
+            "name": "testInitailSetupOnExistingShowtime", 
             "parameters": [], 
             "visibility": "PRIVATE", 
             "references": [], 
             "location": {
                 "column": 33, 
-                "line": 165
+                "line": 76
             }, 
             "returnType": "void", 
             "type": null
@@ -804,13 +920,13 @@
                 "static", 
                 "testMethod"
             ], 
-            "name": "testCalculateRevenueOnUpdate", 
+            "name": "testNavigationOfReservations", 
             "parameters": [], 
             "visibility": "PRIVATE", 
             "references": [], 
             "location": {
                 "column": 33, 
-                "line": 202
+                "line": 102
             }, 
             "returnType": "void", 
             "type": null
@@ -821,13 +937,13 @@
                 "static", 
                 "testMethod"
             ], 
-            "name": "testCalculateTotalReferralsOnInsert", 
+            "name": "testSectionFilter", 
             "parameters": [], 
             "visibility": "PRIVATE", 
             "references": [], 
             "location": {
                 "column": 33, 
-                "line": 235
+                "line": 166
             }, 
             "returnType": "void", 
             "type": null
@@ -838,13 +954,13 @@
                 "static", 
                 "testMethod"
             ], 
-            "name": "testCalculateTotalReferralsOnDelete", 
+            "name": "testGetChartData", 
             "parameters": [], 
             "visibility": "PRIVATE", 
             "references": [], 
             "location": {
                 "column": 33, 
-                "line": 264
+                "line": 191
             }, 
             "returnType": "void", 
             "type": null
@@ -855,13 +971,13 @@
                 "static", 
                 "testMethod"
             ], 
-            "name": "testCalculateTotalReferralsOnUndelete", 
+            "name": "testSaveNew", 
             "parameters": [], 
             "visibility": "PRIVATE", 
             "references": [], 
             "location": {
                 "column": 33, 
-                "line": 298
+                "line": 218
             }, 
             "returnType": "void", 
             "type": null
@@ -872,13 +988,13 @@
                 "static", 
                 "testMethod"
             ], 
-            "name": "testCalculateTotalReferralsOnUpdateClearValue", 
+            "name": "testDeleteReservation", 
             "parameters": [], 
             "visibility": "PRIVATE", 
             "references": [], 
             "location": {
                 "column": 33, 
-                "line": 335
+                "line": 247
             }, 
             "returnType": "void", 
             "type": null
@@ -889,13 +1005,13 @@
                 "static", 
                 "testMethod"
             ], 
-            "name": "testCalculateTotalReferralsOnUpdateReasignment", 
+            "name": "testQueryString", 
             "parameters": [], 
             "visibility": "PRIVATE", 
             "references": [], 
             "location": {
                 "column": 33, 
-                "line": 366
+                "line": 275
             }, 
             "returnType": "void", 
             "type": null
@@ -906,13 +1022,13 @@
                 "static", 
                 "testMethod"
             ], 
-            "name": "testCalculateTotalReferralsOnUpdateNewValue", 
+            "name": "testQueryStringExceptions", 
             "parameters": [], 
             "visibility": "PRIVATE", 
             "references": [], 
             "location": {
                 "column": 33, 
-                "line": 408
+                "line": 312
             }, 
             "returnType": "void", 
             "type": null
@@ -923,13 +1039,13 @@
                 "static", 
                 "testMethod"
             ], 
-            "name": "testCalculateTotalReferralsOnBulkInsertAndDelete", 
+            "name": "testReservationDMLException", 
             "parameters": [], 
             "visibility": "PRIVATE", 
             "references": [], 
             "location": {
                 "column": 33, 
-                "line": 440
+                "line": 332
             }, 
             "returnType": "void", 
             "type": null
@@ -940,13 +1056,13 @@
                 "static", 
                 "testMethod"
             ], 
-            "name": "testCalculateTotalReferralsOnBulkUpdate", 
+            "name": "testShowtimeException", 
             "parameters": [], 
             "visibility": "PRIVATE", 
             "references": [], 
             "location": {
                 "column": 33, 
-                "line": 472
+                "line": 368
             }, 
             "returnType": "void", 
             "type": null
@@ -957,13 +1073,13 @@
                 "static", 
                 "testMethod"
             ], 
-            "name": "testCalculateTotalRevenueOnBulkInsertAndDelete", 
+            "name": "testReservationTakerCreateShowtimeAndAddReservations", 
             "parameters": [], 
             "visibility": "PRIVATE", 
             "references": [], 
             "location": {
                 "column": 33, 
-                "line": 522
+                "line": 393
             }, 
             "returnType": "void", 
             "type": null
@@ -974,47 +1090,13 @@
                 "static", 
                 "testMethod"
             ], 
-            "name": "testCalculateTotalRevenueOnBulkUpdate", 
+            "name": "testReservationTakerUpdateOfExistingShowtime", 
             "parameters": [], 
             "visibility": "PRIVATE", 
             "references": [], 
             "location": {
                 "column": 33, 
-                "line": 562
-            }, 
-            "returnType": "void", 
-            "type": null
-        }, 
-        {
-            "modifiers": [
-                "private", 
-                "static", 
-                "testMethod"
-            ], 
-            "name": "testReCalculateShowTimeRevenueExceptions", 
-            "parameters": [], 
-            "visibility": "PRIVATE", 
-            "references": [], 
-            "location": {
-                "column": 33, 
-                "line": 594
-            }, 
-            "returnType": "void", 
-            "type": null
-        }, 
-        {
-            "modifiers": [
-                "private", 
-                "static", 
-                "testMethod"
-            ], 
-            "name": "testSetupTotalNumberofReferrals", 
-            "parameters": [], 
-            "visibility": "PRIVATE", 
-            "references": [], 
-            "location": {
-                "column": 33, 
-                "line": 613
+                "line": 442
             }, 
             "returnType": "void", 
             "type": null

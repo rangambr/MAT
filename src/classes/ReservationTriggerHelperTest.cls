@@ -1,7 +1,8 @@
 /*
  * @description: This test class includes unit-tests for ReservationTriggerHelper. Logic and caluclations
  *				 are initially tested with small number of records. Then the handling of bulk data is 
- *				 tested with seperate set of methods.
+ *				 tested seperately against "Reservation Taker" user to simulate realtime data handling of
+ *				 Reservations.
  *				 
  */
 @isTest
@@ -35,14 +36,10 @@ private class ReservationTriggerHelperTest {
 	 * @description Bulk insert Tables and Reservations per Showtime.
 	 */
 	private static List<Reservation__c> createReservationForShowTimeBulk(){
-		//Assign all Reservations to one Showtime.
-		if(showtime == null){
-			showTime = TestDataFactory.createShowTime('test shw', System.today().addDays(100),
-		 MATAppConstants.LOCATION_BOSTON, MATAppConstants.MEAL_LUNCH);
-		 insert showTime;
-		}
-
-		List<ShowTime__c> showTimes = new List<Showtime__c>{showtime};
+		
+		List<ShowTime__c> showTimes = TestDataFactory.createShowTimes(50, System.today().addDays(100),
+		MATAppConstants.LOCATION_NY, MATAppConstants.MEAL_DINNER);
+		insert showTimes;
 
 		List<Table__c> tables = TestDataFactory.createTables(50, MATAppConstants.SECTION_25, 
 			MATAppConstants.LOCATION_NY, 3);
@@ -438,43 +435,34 @@ private class ReservationTriggerHelperTest {
 	}
 
 	/*
-	 * @description: This tests the bulk insertion of Reservation and calculation of Total Referrals.
-	 */
-	private static testmethod void testCalculateTotalReferralsOnBulkInsert() {
-
-		List<Reservation__c> reservations = createReservationsForCampaignBulk();
-		
-		Test.startTest();
-
-		insert reservations;
-		
-		//Total Number of Referrals should set to: 2500.
-		Campaign cmp = [SELECT Id, Total_Number_Referrals__c FROM Campaign WHERE Id =:campaign.Id LIMIT 1];
-		System.assertEquals(2500, cmp.Total_Number_Referrals__c, 'Total Referrals No is incorrect.');
-
-		Test.stopTest();
-	}
-
-	/*
 	 * @description: This tests the bulk deletion of Reservation and calculation of Total Referrals.
 	 */
-	private static testmethod void testCalculateTotalReferralsOnBulkDelete() {
+	private static testmethod void testCalculateTotalReferralsOnBulkInsertAndDelete() {
 
-		List<Reservation__c> reservations = createReservationsForCampaignBulk();
-		insert reservations;
+		User reservationTaker = TestDataFactory.createUser(MATAppConstants.RESERVATION_TAKER_PROFILE);
 
-		Test.startTest();
+		System.runAs(reservationTaker){
 
-		Campaign cmp = [SELECT Id, Total_Number_Referrals__c FROM Campaign WHERE Id =:campaign.Id LIMIT 1];
-		System.assertEquals(2500, cmp.Total_Number_Referrals__c, 'Total Referrals No is incorrect.');
-		
-		delete reservations;
-		
-		//Total Number of Referrals should set to: 2500.
-		cmp = [SELECT Id, Total_Number_Referrals__c FROM Campaign WHERE Id =:campaign.Id LIMIT 1];
-		System.assertEquals(0, cmp.Total_Number_Referrals__c, 'Total Referrals No is incorrect.');
+			Test.startTest();
 
-		Test.stopTest();
+			List<Reservation__c> reservations = createReservationsForCampaignBulk();
+			insert reservations;
+
+			//Total Number of Referrals should set to: 2500.
+			Campaign cmp = [SELECT Id, Total_Number_Referrals__c FROM Campaign WHERE Id =:campaign.Id LIMIT 1];
+			System.assertEquals(2500, cmp.Total_Number_Referrals__c, 'Total Referrals No is incorrect.');
+
+			cmp = [SELECT Id, Total_Number_Referrals__c FROM Campaign WHERE Id =:campaign.Id LIMIT 1];
+			System.assertEquals(2500, cmp.Total_Number_Referrals__c, 'Total Referrals No is incorrect.');
+			
+			delete reservations;
+			
+			//Total Number of Referrals should set to: 0.
+			cmp = [SELECT Id, Total_Number_Referrals__c FROM Campaign WHERE Id =:campaign.Id LIMIT 1];
+			System.assertEquals(0, cmp.Total_Number_Referrals__c, 'Total Referrals No is incorrect.');
+
+			Test.stopTest();
+		}
 	}
 
 	/*
@@ -482,84 +470,89 @@ private class ReservationTriggerHelperTest {
 	 *				 This tests bulk clearing, reasigning while updating Reservations.
 	 */
 	private static testmethod void testCalculateTotalReferralsOnBulkUpdate() {
-
-		List<Reservation__c> reservations = createReservationsForCampaignBulk();
-		//set first 500 Reservations Referred_By__c to null to start with
-		for(Integer i = 0; i < 500; i++){
-			reservations[i].Referred_By__c = null;
-		}
-
-		insert reservations;
 		
-		Test.startTest();
+		User reservationTaker = TestDataFactory.createUser(MATAppConstants.RESERVATION_TAKER_PROFILE);
 
-		//validate Total_Number_Referrals__c on initial Campaing - must be 2000.
-		Campaign cmp = [SELECT Id, Total_Number_Referrals__c FROM Campaign WHERE Id =:campaign.Id LIMIT 1];
-		System.assertEquals(2000, cmp.Total_Number_Referrals__c, 'Total Referrals No is incorrect.');
+		System.runAs(reservationTaker){
 
-		//set first 500 Reservations Referred_By__c to initial Campaign again.
-		for(Integer i = 0; i < 500; i++){
-			reservations[i].Referred_By__c = campaign.Id;
+			List<Reservation__c> reservations = createReservationsForCampaignBulk();
+			//set first 500 Reservations Referred_By__c to null to start with
+			for(Integer i = 0; i < 500; i++){
+				reservations[i].Referred_By__c = null;
+			}
+
+			insert reservations;
+			
+			Test.startTest();
+
+			//validate Total_Number_Referrals__c on initial Campaing - must be 2000.
+			Campaign cmp = [SELECT Id, Total_Number_Referrals__c FROM Campaign WHERE Id =:campaign.Id LIMIT 1];
+			System.assertEquals(2000, cmp.Total_Number_Referrals__c, 'Total Referrals No is incorrect.');
+
+			//set first 500 Reservations Referred_By__c to initial Campaign again.
+			for(Integer i = 0; i < 500; i++){
+				reservations[i].Referred_By__c = campaign.Id;
+			}
+
+			Campaign alternateCampaign = TestDataFactory.createCampaign('test alt', 'test alt desc');
+
+			//set next 500 Reservation Referred_By__c to alternate Campaign.
+			for(Integer i = 500; i < 1000; i++){
+				reservations[i].Referred_By__c = alternateCampaign.Id;
+			}
+
+			//set next 500 Reservations Referred_By__c to null.
+			for(Integer i = 1000; i < 1500; i++){
+				reservations[i].Referred_By__c = null;
+			}
+
+			update reservations;
+			
+			//Total Number of Referrals should set to: 1500. (Initially 2500, 500 cleared and another 500 reasigned.)
+			cmp = [SELECT Id, Total_Number_Referrals__c FROM Campaign WHERE Id =:campaign.Id LIMIT 1];
+			System.assertEquals(1500, cmp.Total_Number_Referrals__c, 'Total Referrals No is incorrect.');
+
+			Test.stopTest();
 		}
-
-		Campaign alternateCampaign = TestDataFactory.createCampaign('test alt', 'test alt desc');
-
-		//set next 500 Reservation Referred_By__c to alternate Campaign.
-		for(Integer i = 500; i < 1000; i++){
-			reservations[i].Referred_By__c = alternateCampaign.Id;
-		}
-
-		//set next 500 Reservations Referred_By__c to null.
-		for(Integer i = 1000; i < 1500; i++){
-			reservations[i].Referred_By__c = null;
-		}
-
-		update reservations;
-		
-		//Total Number of Referrals should set to: 1500. (Initially 2500, 500 cleared and another 500 reasigned.)
-		cmp = [SELECT Id, Total_Number_Referrals__c FROM Campaign WHERE Id =:campaign.Id LIMIT 1];
-		System.assertEquals(1500, cmp.Total_Number_Referrals__c, 'Total Referrals No is incorrect.');
-
-		Test.stopTest();
 	}
 
 	/*
 	 * @description: This tests the bulk insertion of Reservation and calculation of Total Revenue.
 	 */
-	private static testmethod void testCalculateTotalRevenueOnBulkInsert() {
+	private static testmethod void testCalculateTotalRevenueOnBulkInsertAndDelete() {
 
-		List<Reservation__c> reservations = createReservationForShowTimeBulk();
-		
+		User reservationTaker = TestDataFactory.createUser(MATAppConstants.RESERVATION_TAKER_PROFILE);
+
 		Test.startTest();
 
-		insert reservations;
+		System.runAs(reservationTaker){
+
+			List<Reservation__c> reservations = createReservationForShowTimeBulk();
+			insert reservations;
 		
-		//Total Revenue should set to: 2500.
-		Showtime__c show = [SELECT Id, Total_Revenue__c FROM ShowTime__c WHERE Id =:showtime.Id LIMIT 1];
-		System.assertEquals(2500, show.Total_Revenue__c, 'Total Referrals No is incorrect.');
+			Set<Id> showtimeIds = new Set<Id>();
+			
+			for(Reservation__c res : reservations){
+				showtimeIds.add(res.Showtime__c);
+			}
 
-		Test.stopTest();
-	}
+			List<Showtime__c> shows = [SELECT Id, Total_Revenue__c FROM ShowTime__c WHERE Id =:showtimeIds];
 
-	/*
-	 * @description: This tests the bulk insertion of Reservation and calculation of Total Revenue.
-	 */
-	private static testmethod void testCalculateTotalRevenueOnBulkDelete() {
+			for(Showtime__c show : shows){
+				//Total Revenue should set to: 2500 for all showtimes.
+				System.assertEquals(2500, show.Total_Revenue__c, 'Total Revenue is incorrect.');
+			}
 
-		List<Reservation__c> reservations = createReservationForShowTimeBulk();
-		insert reservations;
+			delete reservations;
+			
+			//Total Revenue should set to: 0 for all showtimes.
+			shows = [SELECT Id, Total_Revenue__c FROM ShowTime__c WHERE Id =:showtimeIds];
+
+			for(Showtime__c show : shows){
+				System.assertEquals(0, show.Total_Revenue__c, 'Total Revenue is incorrect.');
+			}
+		}
 		
-		Test.startTest();
-
-		Showtime__c show = [SELECT Id, Total_Revenue__c FROM ShowTime__c WHERE Id =:showtime.Id LIMIT 1];
-		System.assertEquals(2500, show.Total_Revenue__c, 'Total Referrals No is incorrect.');
-
-		delete reservations;
-		
-		//Total Revenue should set to: 0.
-		show = [SELECT Id, Total_Revenue__c FROM ShowTime__c WHERE Id =:showtime.Id LIMIT 1];
-		System.assertEquals(0, show.Total_Revenue__c, 'Total Referrals No is incorrect.');
-
 		Test.stopTest();
 	}
 
@@ -568,24 +561,68 @@ private class ReservationTriggerHelperTest {
 	 */
 	private static testmethod void testCalculateTotalRevenueOnBulkUpdate() {
 
-		List<Reservation__c> reservations = createReservationForShowTimeBulk();
-		insert reservations;
+		User reservationTaker = TestDataFactory.createUser(MATAppConstants.RESERVATION_TAKER_PROFILE);
+
+		System.runAs(reservationTaker){
+
+			List<Reservation__c> reservations = createReservationForShowTimeBulk();
+			insert reservations;
 		
-		Test.startTest();
+			Set<Id> showtimeIds = new Set<Id>();
 
-		Showtime__c show = [SELECT Id, Total_Revenue__c FROM ShowTime__c WHERE Id =:showtime.Id LIMIT 1];
-		System.assertEquals(2500, show.Total_Revenue__c, 'Total Referrals No is incorrect.');
+			Test.startTest();
+			//set party size to 3,
+			for(Reservation__c res : reservations){
+				showtimeIds.add(res.Showtime__c);
+				res.Party_Size__c = 3;
+			}
+			update reservations;
+			
+			List<Showtime__c> shows = [SELECT Id, Total_Revenue__c FROM ShowTime__c WHERE Id =:showtimeIds];
 
-		for(Integer i = 0; i < 20; i++){
-			reservations[i].Party_Size__c = 3;
+			for(Showtime__c show : shows){
+				//Total Revenue should set to: 3750 for all showtimes.
+				System.assertEquals(3750, show.Total_Revenue__c, 'Total Revenue is incorrect.');
+			}
+			Test.stopTest();
 		}
-		update reservations;
+	}
 
-		// (25 * 3) * 20 + (25 * 2) * 30 = 3000;
-		//Total Revenue should set to: 3000.
-		show = [SELECT Id, Total_Revenue__c FROM ShowTime__c WHERE Id =:showtime.Id LIMIT 1];
-		System.assertEquals(3000, show.Total_Revenue__c, 'Total Referrals No is incorrect.');
+	/*
+	 * @description: This tests the exception handling when calculating showtime revenue.
+	 */
+	private static testmethod void testReCalculateShowTimeRevenueExceptions(){
+		
+		Reservation__c res = createReservationForCampaign();
+		
+		try{
+			//first param is expecting a set of showtime Ids, instead pass a set of campaign Ids
+			//so that invalid Id exception will be occured.
+			ReservationTriggerHelper.reCalculateShowTimeRevenue(new Set<Id>{campaign.Id}, 
+				new List<Reservation__c>{res});
+		}catch(Exception ex){
+			System.assertNotEquals(null, ex);
+			System.assertEquals(true, ex.getmessage().contains(Label.Reservation_Save_Error),
+				'Reservation save error is not available.');
+		}
+	}
 
-		Test.stopTest();
+	/*
+	 * @description: This tests the exception handling when counting campaign referrals.
+	 */
+	private static testmethod void testSetupTotalNumberofReferrals(){
+		
+		Reservation__c res = createReservationForShowTime();
+		
+		try{
+			//first param is expecting a set of campaign Ids, instead pass a set of show Ids
+			//so that invalid Id exception will be occured.
+			ReservationTriggerHelper.setupTotalNumberofReferrals(new Set<Id>{showTime.Id}, 
+				new List<Reservation__c>{res});
+		}catch(Exception ex){
+			System.assertNotEquals(null, ex);
+			System.assertEquals(true, ex.getmessage().contains(Label.Reservation_Save_Error),
+				'Reservation save error is not available.');
+		}
 	}
 }

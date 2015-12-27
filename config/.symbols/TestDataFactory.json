@@ -26,38 +26,8 @@
             "modifiers": [], 
             "references": [], 
             "location": {
-                "column": 55, 
-                "line": 11
-            }, 
-            "name": "numberOfRecords"
-        }, 
-        {
-            "type": "LIST", 
-            "modifiers": [], 
-            "references": [], 
-            "location": {
-                "column": 18, 
-                "line": 12
-            }, 
-            "name": "campaigns"
-        }, 
-        {
-            "type": "Integer", 
-            "modifiers": [], 
-            "references": [], 
-            "location": {
-                "column": 16, 
-                "line": 15
-            }, 
-            "name": "i"
-        }, 
-        {
-            "type": "Integer", 
-            "modifiers": [], 
-            "references": [], 
-            "location": {
                 "column": 58, 
-                "line": 30
+                "line": 14
             }, 
             "name": "numberOfRecords"
         }, 
@@ -67,7 +37,7 @@
             "references": [], 
             "location": {
                 "column": 80, 
-                "line": 30
+                "line": 14
             }, 
             "name": "showdate"
         }, 
@@ -77,7 +47,7 @@
             "references": [], 
             "location": {
                 "column": 97, 
-                "line": 30
+                "line": 14
             }, 
             "name": "location"
         }, 
@@ -87,7 +57,7 @@
             "references": [], 
             "location": {
                 "column": 114, 
-                "line": 30
+                "line": 14
             }, 
             "name": "meal"
         }, 
@@ -97,7 +67,7 @@
             "references": [], 
             "location": {
                 "column": 21, 
-                "line": 31
+                "line": 15
             }, 
             "name": "showTimes"
         }, 
@@ -107,7 +77,7 @@
             "references": [], 
             "location": {
                 "column": 16, 
-                "line": 34
+                "line": 18
             }, 
             "name": "i"
         }, 
@@ -117,7 +87,7 @@
             "references": [], 
             "location": {
                 "column": 52, 
-                "line": 48
+                "line": 32
             }, 
             "name": "numberOfRecords"
         }, 
@@ -127,7 +97,7 @@
             "references": [], 
             "location": {
                 "column": 76, 
-                "line": 48
+                "line": 32
             }, 
             "name": "section"
         }, 
@@ -137,7 +107,7 @@
             "references": [], 
             "location": {
                 "column": 92, 
-                "line": 48
+                "line": 32
             }, 
             "name": "location"
         }, 
@@ -147,7 +117,7 @@
             "references": [], 
             "location": {
                 "column": 110, 
-                "line": 48
+                "line": 32
             }, 
             "name": "seats"
         }, 
@@ -157,7 +127,7 @@
             "references": [], 
             "location": {
                 "column": 18, 
-                "line": 49
+                "line": 33
             }, 
             "name": "tables"
         }, 
@@ -167,7 +137,7 @@
             "references": [], 
             "location": {
                 "column": 16, 
-                "line": 52
+                "line": 36
             }, 
             "name": "i"
         }, 
@@ -177,7 +147,7 @@
             "references": [], 
             "location": {
                 "column": 71, 
-                "line": 67
+                "line": 51
             }, 
             "name": "tables"
         }, 
@@ -187,7 +157,7 @@
             "references": [], 
             "location": {
                 "column": 97, 
-                "line": 67
+                "line": 51
             }, 
             "name": "showTimes"
         }, 
@@ -197,7 +167,7 @@
             "references": [], 
             "location": {
                 "column": 117, 
-                "line": 67
+                "line": 51
             }, 
             "name": "campaign"
         }, 
@@ -207,7 +177,7 @@
             "references": [], 
             "location": {
                 "column": 135, 
-                "line": 67
+                "line": 51
             }, 
             "name": "partySize"
         }, 
@@ -217,7 +187,7 @@
             "references": [], 
             "location": {
                 "column": 24, 
-                "line": 68
+                "line": 52
             }, 
             "name": "reservations"
         }, 
@@ -227,7 +197,7 @@
             "references": [], 
             "location": {
                 "column": 16, 
-                "line": 70
+                "line": 54
             }, 
             "name": "table"
         }, 
@@ -237,7 +207,7 @@
             "references": [], 
             "location": {
                 "column": 20, 
-                "line": 71
+                "line": 55
             }, 
             "name": "showTime"
         }, 
@@ -247,7 +217,7 @@
             "references": [], 
             "location": {
                 "column": 8, 
-                "line": 72
+                "line": 56
             }, 
             "name": "campaignId"
         }, 
@@ -257,7 +227,7 @@
             "references": [], 
             "location": {
                 "column": 47, 
-                "line": 86
+                "line": 70
             }, 
             "name": "name"
         }, 
@@ -267,7 +237,7 @@
             "references": [], 
             "location": {
                 "column": 60, 
-                "line": 86
+                "line": 70
             }, 
             "name": "Description"
         }, 
@@ -277,7 +247,7 @@
             "references": [], 
             "location": {
                 "column": 12, 
-                "line": 87
+                "line": 71
             }, 
             "name": "campaign"
         }, 
@@ -287,7 +257,7 @@
             "references": [], 
             "location": {
                 "column": 50, 
-                "line": 98
+                "line": 82
             }, 
             "name": "name"
         }, 
@@ -297,7 +267,7 @@
             "references": [], 
             "location": {
                 "column": 61, 
-                "line": 98
+                "line": 82
             }, 
             "name": "showDate"
         }, 
@@ -307,7 +277,7 @@
             "references": [], 
             "location": {
                 "column": 78, 
-                "line": 98
+                "line": 82
             }, 
             "name": "location"
         }, 
@@ -317,7 +287,7 @@
             "references": [], 
             "location": {
                 "column": 95, 
-                "line": 98
+                "line": 82
             }, 
             "name": "meal"
         }, 
@@ -327,7 +297,7 @@
             "references": [], 
             "location": {
                 "column": 15, 
-                "line": 99
+                "line": 83
             }, 
             "name": "showTime"
         }, 
@@ -337,7 +307,7 @@
             "references": [], 
             "location": {
                 "column": 44, 
-                "line": 109
+                "line": 93
             }, 
             "name": "name"
         }, 
@@ -347,7 +317,7 @@
             "references": [], 
             "location": {
                 "column": 57, 
-                "line": 109
+                "line": 93
             }, 
             "name": "section"
         }, 
@@ -357,7 +327,7 @@
             "references": [], 
             "location": {
                 "column": 73, 
-                "line": 109
+                "line": 93
             }, 
             "name": "location"
         }, 
@@ -367,7 +337,7 @@
             "references": [], 
             "location": {
                 "column": 91, 
-                "line": 109
+                "line": 93
             }, 
             "name": "seats"
         }, 
@@ -377,7 +347,7 @@
             "references": [], 
             "location": {
                 "column": 12, 
-                "line": 110
+                "line": 94
             }, 
             "name": "table"
         }, 
@@ -387,7 +357,7 @@
             "references": [], 
             "location": {
                 "column": 52, 
-                "line": 122
+                "line": 106
             }, 
             "name": "table"
         }, 
@@ -397,7 +367,7 @@
             "references": [], 
             "location": {
                 "column": 62, 
-                "line": 122
+                "line": 106
             }, 
             "name": "showtime"
         }, 
@@ -407,7 +377,7 @@
             "references": [], 
             "location": {
                 "column": 75, 
-                "line": 122
+                "line": 106
             }, 
             "name": "campaign"
         }, 
@@ -417,7 +387,7 @@
             "references": [], 
             "location": {
                 "column": 93, 
-                "line": 122
+                "line": 106
             }, 
             "name": "partySize"
         }, 
@@ -427,34 +397,53 @@
             "references": [], 
             "location": {
                 "column": 18, 
-                "line": 123
+                "line": 107
             }, 
             "name": "reservation"
+        }, 
+        {
+            "type": "String", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 39, 
+                "line": 116
+            }, 
+            "name": "sProfile"
+        }, 
+        {
+            "type": "Double", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 15, 
+                "line": 118
+            }, 
+            "name": "randomNo"
+        }, 
+        {
+            "type": "Profile", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 16, 
+                "line": 120
+            }, 
+            "name": "prof"
+        }, 
+        {
+            "type": "User", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 13, 
+                "line": 122
+            }, 
+            "name": "usr"
         }
     ], 
     "id": "01pq0000000AnFNAA0", 
     "methods": [
-        {
-            "modifiers": [
-                "static", 
-                "public"
-            ], 
-            "name": "createCampaigns", 
-            "parameters": [
-                {
-                    "type": "Integer", 
-                    "name": "numberOfRecords"
-                }
-            ], 
-            "visibility": "PUBLIC", 
-            "references": [], 
-            "location": {
-                "column": 31, 
-                "line": 11
-            }, 
-            "returnType": "LIST", 
-            "type": null
-        }, 
         {
             "modifiers": [
                 "static", 
@@ -483,7 +472,7 @@
             "references": [], 
             "location": {
                 "column": 34, 
-                "line": 30
+                "line": 14
             }, 
             "returnType": "LIST", 
             "type": null
@@ -516,7 +505,7 @@
             "references": [], 
             "location": {
                 "column": 31, 
-                "line": 48
+                "line": 32
             }, 
             "returnType": "LIST", 
             "type": null
@@ -549,7 +538,7 @@
             "references": [], 
             "location": {
                 "column": 37, 
-                "line": 67
+                "line": 51
             }, 
             "returnType": "LIST", 
             "type": null
@@ -574,7 +563,7 @@
             "references": [], 
             "location": {
                 "column": 25, 
-                "line": 86
+                "line": 70
             }, 
             "returnType": "Campaign", 
             "type": null
@@ -607,7 +596,7 @@
             "references": [], 
             "location": {
                 "column": 28, 
-                "line": 98
+                "line": 82
             }, 
             "returnType": "Showtime__c", 
             "type": null
@@ -640,7 +629,7 @@
             "references": [], 
             "location": {
                 "column": 25, 
-                "line": 109
+                "line": 93
             }, 
             "returnType": "Table__c", 
             "type": null
@@ -673,9 +662,30 @@
             "references": [], 
             "location": {
                 "column": 31, 
-                "line": 122
+                "line": 106
             }, 
             "returnType": "Reservation__c", 
+            "type": null
+        }, 
+        {
+            "modifiers": [
+                "static", 
+                "public"
+            ], 
+            "name": "createUser", 
+            "parameters": [
+                {
+                    "type": "String", 
+                    "name": "sProfile"
+                }
+            ], 
+            "visibility": "PUBLIC", 
+            "references": [], 
+            "location": {
+                "column": 21, 
+                "line": 116
+            }, 
+            "returnType": "User", 
             "type": null
         }
     ]

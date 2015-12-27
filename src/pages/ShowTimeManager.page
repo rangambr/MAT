@@ -3,6 +3,16 @@
  * @description Overrides the Edit and New view of the Showtime object. Allows users to create/edit a 
  *				Showtime, create/edit Reservations for selected showtime. Also view table section
  *				vs attendance chart. 
+ *              Asumptions: 
+ *              1. Only "Reservation Takers" have access to this Visualforce page and Marketing Managers
+ *              cannot create or edit showtimes.
+ *
+ *              2. When users create a new Showtime, all the Tables in the system are available to select
+ *              and Tables are not filtered by the location of the showtime.
+ *              
+ *              3. While editing exiting showtime, if users change the location of the showtime,
+ *              listed tables are not getting updated for the new location. It is assumed that users always
+ *              save the location and of the showtime first and then add reservations for it.
  */
 -->
 <apex:page standardController="Showtime__c" extensions="ShowTimeManager">
@@ -11,10 +21,10 @@
 
     <apex:sectionHeader title="{!$ObjectType.Showtime__c.Label} Manager" subtitle="{!IF(Showtime__c.Id == NULL,'New'&' '&$ObjectType.Showtime__c.Label, Showtime__c.Name)}" />
     
-    <apex:form >
+    <apex:form>
 
-    <apex:pageBlock title="{!$ObjectType.Showtime__c.Label} Details">
-        
+        <apex:pageBlock title="{!$ObjectType.Showtime__c.Label} Details">
+            
             <apex:pageMessages id="pgMessage"/>
 
             <apex:pageBlockButtons location="top">
@@ -25,12 +35,7 @@
             <apex:pageBlockSection title="{!$ObjectType.Showtime__c.Label} Information" collapsible="false" columns="2">
                 <apex:inputField required="true" value="{!Showtime__c.Name}"/>
                 <apex:inputField required="true" value="{!Showtime__c.Date__c}"/>
-                <!--Not a given requirement but to keep the logic consistant when the location is changed
-				chart and related tables are refreshed so that tables for selected location are only displayed. -->
-                <apex:inputField required="true" value="{!Showtime__c.Location__c}">
-                    <apex:actionSupport event="onchange" action="{!setupTableSet}" rerender="tablesSection, chartSection"/>
-                </apex:inputField>
-
+                <apex:inputField required="true" value="{!Showtime__c.Location__c}"/>
                 <apex:inputField required="true" value="{!Showtime__c.Meal__c}"/>
                 <apex:outputField value="{!Showtime__c.Total_Revenue__c}"/>
             </apex:pageBlockSection>
@@ -44,8 +49,8 @@
                     <apex:pageMessage rendered="{!chartData.size == 0}" summary="{!$Label.NoReservationErrorChart}" severity="ERROR" strength="0"/>
 
                     <apex:outputPanel styleClass="processor">
-                            <apex:actionStatus id="fetchStatus" startText="Loading..." stopText=""/>
-                        </apex:outputPanel>
+                        <apex:actionStatus id="fetchStatus" startText="Loading..." stopText=""/>
+                    </apex:outputPanel>
 
                     <!-- Visualforce chart - Attendance(Total Party Size vs. Table Sections)-->
                     <apex:chart hidden="false" height="200" width="100%" rendered="{!chartData.size > 0}" data="{!chartData}">
@@ -93,6 +98,7 @@
 
                         <apex:column value="{!reservation.Table__r.Section__c}"/>
                         <apex:column value="{!reservation.Table__r.Location__c}"/>
+                        
                     </apex:pageBlockTable>
 
                     <!-- Navigation panel. Allows users to navigate through Tables.-->
@@ -113,7 +119,7 @@
 
             </apex:actionRegion>
 
-    </apex:pageBlock>
+        </apex:pageBlock>
 
     </apex:form>
 

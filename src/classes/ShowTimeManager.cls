@@ -2,6 +2,13 @@
  * @description Controller extension for ShowtimeManager page. Allows users to create/edit showtime,
  *              create/edit Reservations for a showtime and view total attendance vs. table section
  *              chart.
+ *              Asumptions: 
+ *              1. When users create a new Showtime, all the Tables in the system are available to select
+ *              and Tables are not filtered by the location of the showtime.
+ *              
+ *              2. While editing exiting showtime, if users change the location of the showtime,
+ *              listed tables are not getting updated for the new location. It is assumed that users always
+ *              save the location and of the showtime first and then add reservations for it.
  */
 public with sharing class ShowTimeManager {
 
@@ -13,8 +20,11 @@ public with sharing class ShowTimeManager {
     public String selectedSection{get;set;}
 
     //Showtime record 
-	private final Showtime__c showtime;
-    //Reservations by the Table. Reservation created/edited for each table for this showtime.
+    @testvisible
+	private Showtime__c showtime;
+    //Reservations by the Table. Behaves as an identity map. 
+    //Maps Table to Reservation created/edited for this showtime.
+    @testvisible
     private Map<Id, Reservation__c> tableReservation;
 
     private ApexPages.StandardController stdShowtime;
@@ -32,7 +42,7 @@ public with sharing class ShowTimeManager {
         this.showtime = (Showtime__c)stdShowtime.getRecord();
 
         this.tableReservation = new Map<Id, Reservation__c>();
-        this.selectedSection = 'all';
+        this.selectedSection = MATAppConstants.LOCATION_ALL;
 
         setupReservations();
 
@@ -50,7 +60,7 @@ public with sharing class ShowTimeManager {
     public List<SelectOption> getSectionFilter(){
         List<SelectOption> sections = new List<SelectOption>();
         
-        sections.add(new SelectOption('all', Label.AllTableSections));
+        sections.add(new SelectOption(MATAppConstants.LOCATION_ALL, Label.AllTableSections));
         
         for(String section : MATAppSettings.tableSections){
             sections.add(new SelectOption(section, section));
@@ -120,9 +130,17 @@ public with sharing class ShowTimeManager {
      * @description Saves Showtime and associated Reservations.
      */
     public PageReference save(){
+
+        List<Reservation__c> reservationsToUpsert = new List<Reservation__c>();
+        List<Reservation__c> reservationsToDelete = new List<Reservation__c>();
+
+        //Create a save point before saving the showtime so that if an exception
+        //occurs while saving Reservations, we can roll back to any changes to the
+        //showtime.
+        Savepoint sp = Database.setSavepoint();
         try{
             //save the Showtime.
-            stdShowtime.save();
+            upsert showtime;
 
         } catch(Exception ex){
             //catch any exception while dml - future validation rules etc.
@@ -132,13 +150,14 @@ public with sharing class ShowTimeManager {
             return null;
         }
 
-        List<Reservation__c> reservationsToUpsert = new List<Reservation__c>();
-        List<Reservation__c> reservationsToDelete = new List<Reservation__c>();
-
         //save Reservations
         for(Id tableId : tableReservation.keySet()){
             
             if(tableReservation.get(tableId).Party_Size__c > 0){
+                //assign showtime Id - incase this is a new record
+                if(tableReservation.get(tableId).Showtime__c == null){
+                    tableReservation.get(tableId).Showtime__c = showtime.Id;
+                }
                 reservationsToUpsert.add(tableReservation.get(tableId));
             }
 
@@ -149,11 +168,17 @@ public with sharing class ShowTimeManager {
         }
 
         try{
-
-            upsert reservationsToUpsert;
-            delete reservationsToDelete;
+            if(! reservationsToUpsert.isEmpty()){
+                upsert reservationsToUpsert;
+            }
+            if(! reservationsToDelete.isEmpty()){
+                delete reservationsToDelete;
+            }
 
         }  catch(Exception ex) {
+            //Undo Saving of save to Showtime if Reservations cannot be saved.
+            Database.rollback(sp);
+            
             //catch any exception while dml - future validation rules etc.
             ApexPages.Message errormsg = new ApexPages.Message(ApexPages.Severity.ERROR, 
                 Label.ReservationSaveError);
@@ -224,14 +249,14 @@ public with sharing class ShowTimeManager {
     }
 
     /*
-     * @description Load current reservations for this showtime and populate the map initially.
+     * @description Load existing reservations for the showtime and populate the identity map initially.
      */
     @testvisible
     private void setupReservations(){
         
         if(showtime != null && showtime.Id != null){
             List<Reservation__c> reservations = [SELECT Id, Table__c, Table__r.Section__c, Table__r.Seats__c,
-                                Table__r.Location__c, Party_Size__c, Referred_By__c, Table__r.Name 
+                                Table__r.Location__c, Party_Size__c, Referred_By__c, Table__r.Name, Showtime__c 
                                 FROM Reservation__c WHERE Showtime__c=:showtime.Id];
 
             for(Reservation__c reservation : reservations){
@@ -245,6 +270,10 @@ public with sharing class ShowTimeManager {
      */
     @testvisible
     private String getQueryString(){
+        
+        //escape any single quotes
+        selectedSection = String.escapeSingleQuotes(selectedSection);
+
         String locationFilter = showtime.Location__c != null ? ' Location__c = \''+showtime.Location__c+'\'' : '';
         String sectionFilter = selectedSection != 'all' ? ' Section__c = \''+selectedSection+'\'' : '';
 

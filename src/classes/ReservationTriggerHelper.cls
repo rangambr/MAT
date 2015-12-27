@@ -85,16 +85,20 @@ public with sharing class ReservationTriggerHelper {
 	 * @param:       Set<Id> showTimeIds - ShowTimeIds which Revenue needs recalculating.  				
 	 * @return:      void
 	 */
+	@testvisible
 	private static void reCalculateShowTimeRevenue(Set<Id> showTimeIds, List<Reservation__c> reservations){
 		
 		if(! showTimeIds.isEmpty()){
 			List<ShowTime__c> showTimesToUpdate = new List<ShowTime__c>();
 			Map<Id, Double> totalRevPerShowTime = new Map<Id, Double> ();
 
-			AggregateResult[] reservationsByShowTime = [SELECT ShowTime__c, SUM(Revenue__c) totalRevenue 
+			AggregateResult[] reservationsByShowTime;
+
+			try {
+				reservationsByShowTime = [SELECT ShowTime__c, SUM(Revenue__c) totalRevenue 
 																FROM Reservation__c 
 																WHERE ShowTime__c =:showTimeIds GROUP BY ShowTime__c];
-			try {
+
 				for (AggregateResult reservationByShowTime : reservationsByShowTime)  {
 					totalRevPerShowTime.put((Id)reservationByShowTime.get('ShowTime__c'), 
 						(Decimal)reservationByShowTime.get('totalRevenue'));
@@ -115,21 +119,30 @@ public with sharing class ReservationTriggerHelper {
 			} catch(Exception ex) {
 				//If any other exception occurs, display the message to the end user.
 				for(Reservation__c reservation : reservations) {
-					reservation.addError(ex.getMessage());
+					reservation.addError(Label.Reservation_Save_Error+':'+ex.getMessage());
 				}
 			}
 		}
 	}
 
 	/* @description: This method calculates the Total_Number_Referrals__c on Campaigns. As there can be up to
-	 *				 10000 Referrals per Campaign, there is a possibility that Aggregate Query could reach limits.
+	 *				 10000 Referrals per Campaign, there is a possibility that Aggregate Query could reach limits if 
+	 *				 there are more than 5 Campaingns with 10000 Referrals get updated in the same transaction.
 	 *				 In case if there is an exception, reservation records will not be updated or inserted and error
 	 *				 message will be displayed to the user.
+	 *				 
+	 *				 <NOTE> ReservationCampaignHelper is made "WITHOUT SHARING" so that all Reservations for each
+	 *				 campaign get counted regardless of "Reservation Takers'"" record level read permissions for Reservations.
+	 *				 Alternative way of implementation would be to only increment or decrement Referrals when users add/
+	 *				 remove Referrals but as existing data is not up-to-date with correct number of referrals, this 
+	 *				 approach is not feasible.
+	 *				
 	 * @param:       Set<Id> campaignIds - Campaigns which needs calculating number of referrals.
 	 * @param:       List<Reservation__c> reservations - List of Reservations being inserted/updated. Used to add
 	 *				 error message if there is any.
 	 * @return:      void
 	 */
+	@testvisible
 	private static void setupTotalNumberofReferrals(Set<Id> campaignIds, List<Reservation__c> reservations){
 		
 		if(! campaignIds.isEmpty()){
@@ -138,46 +151,41 @@ public with sharing class ReservationTriggerHelper {
 			AggregateResult[] reservationsByCampaigns;
 			
 			try {
-				reservationsByCampaigns = [SELECT Referred_By__c, COUNT(Id) totalReferrals 
-															FROM Reservation__c 
-															WHERE Referred_By__c =:campaignIds 
-															GROUP BY Referred_By__c];
-			} catch(LimitException ex){
-				for(Reservation__c reservation : reservations){
-					reservation.addError(Label.Reservation_Aggregate_Query_Error_Referrals+':'+ex.getMessage());
-				}
-			} catch(Exception ex){
-				//If any other exception occurs, display the message to the end user.
-				for(Reservation__c reservation : reservations){
-					reservation.addError(ex.getMessage());
-				}
-			}
-			
-			try {
+				reservationsByCampaigns = ReservationCampaignHelper.getAllReservationsByCampaign(campaignIds);
+			 
 				Map<Id, Integer> currentReferralsPerCampaign = new Map<Id, Integer> ();
 				
+				//Get count of existing referals per campaign.
 				for (AggregateResult reservationsByCampaign : reservationsByCampaigns)  {
 					currentReferralsPerCampaign.put((Id)reservationsByCampaign.get('Referred_By__c'), 
 						(Integer)reservationsByCampaign.get('totalReferrals'));
 				}
-			
+				//validate existing campaigns has correct count.
 				for(Id campaignId : campaignIds){
+					//If the campaign has any reservations referred by update with the latest.
 					if(currentReferralsPerCampaign.containsKey(campaignId)){
 						campaignsToUpdate.add(new Campaign(Id = campaignId, 
 							Total_Number_Referrals__c = currentReferralsPerCampaign.get(campaignId)));
-					} else {
+					}
+					//If the campaign do not have any referrals, i.e referral is removed from the Reservation;
+					//set the total number of referrals to zero.
+					 else {
 						campaignsToUpdate.add(new Campaign(Id = campaignId, Total_Number_Referrals__c = 0));
 					}
 				}
 
 				if(campaignsToUpdate.size() > 0){
 					update campaignsToUpdate;
-				}
 				
+				}
+			} catch(LimitException ex){
+				for(Reservation__c reservation : reservations){
+					reservation.addError(Label.Reservation_Aggregate_Query_Error_Referrals+':'+ex.getMessage());
+				}
 			} catch(Exception ex){
 				//If there are any exceptions notify user.
 				for(Reservation__c reservation : reservations){
-					reservation.addError(ex.getMessage());
+					reservation.addError(Label.Reservation_Save_Error+':'+ex.getMessage());
 				}
 			}
 		}

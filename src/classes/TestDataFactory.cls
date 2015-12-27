@@ -4,22 +4,6 @@
 public with sharing class TestDataFactory {
 
 	/*
-	 * @description This method provides a list of Campaign instances
-	 * @param Integer numberOfRecords - number of instances to create
-	 * @return 	List<Campaign> - campaign instances.	
-	 */
-	public static List<Campaign> createCampaigns(Integer numberOfRecords){
-		List<Campaign> campaigns = new List<Campaign> ();
-		
-		if(numberOfRecords != null && numberOfRecords > 0){
-			for(Integer i = 0; i < numberOfRecords; i++){
-				campaigns.add(createCampaign('Test Name'+i, 'Test Description'+i));
-			}
-		}
-		return campaigns;
-	}
-
-	/*
 	 * @description This method provides a list of Show Time instances
 	 * @param Integer numberOfRecords - number of instances to create
 	 * @param Date showdate - date of the Show Time
@@ -123,4 +107,25 @@ public with sharing class TestDataFactory {
 		Reservation__c reservation = new Reservation__c(Showtime__c = showTime, Table__c = table, Referred_By__c = campaign, Party_Size__c = partySize);
 		return reservation;
 	}
+
+	/*
+	 * @description Create a test user
+	 * @param String sProfile - profile name
+	 * @return 	User - inserted user instance.	
+	 */
+	public static user createUser(String sProfile){
+
+       Double randomNo = Math.random();
+
+       Profile prof = [SELECT Id FROM Profile WHERE Name=: sProfile LIMIT 1];
+       
+       User usr = new User(Alias = 'test122',Email='test2@test.fca.gov.com',
+                      EmailEncodingKey='UTF-8', LastName='Testing123', 
+                      LanguageLocaleKey='en_US', LocaleSidKey='en_US', 
+                      ProfileId = prof.Id,TimeZoneSidKey='America/Los_Angeles',
+                      UserName='matTest'+String.valueOf(randomNo).right(3)+'@matTestXY.com',
+                      Title='Testing123');
+       insert usr;
+       return usr;
+    }
 }

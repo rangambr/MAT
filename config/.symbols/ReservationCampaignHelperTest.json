@@ -5,9 +5,9 @@
     "interfaces": [], 
     "constructors": [], 
     "namespace": null, 
-    "name": "MATAppSettingsTest", 
+    "name": "ReservationCampaignHelperTest", 
     "tableDeclaration": {
-        "type": "MATAppSettingsTest", 
+        "type": "ReservationCampaignHelperTest", 
         "modifiers": [
             "private", 
             "testMethod"
@@ -17,186 +17,235 @@
             "column": 15, 
             "line": 2
         }, 
-        "name": "MATAppSettingsTest"
+        "name": "ReservationCampaignHelperTest"
     }, 
-    "key": "01pq00000000bMYAAY", 
+    "key": "01pq00000000gE5AAI", 
     "variables": [
         {
-            "type": "LIST", 
+            "type": "Campaign", 
             "modifiers": [], 
             "references": [], 
             "location": {
-                "column": 16, 
+                "column": 12, 
+                "line": 7
+            }, 
+            "name": "campaign1"
+        }, 
+        {
+            "type": "Campaign", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 12, 
                 "line": 10
             }, 
-            "name": "locations"
-        }, 
-        {
-            "type": "DescribeFieldResult", 
-            "modifiers": [], 
-            "references": [], 
-            "location": {
-                "column": 30, 
-                "line": 12
-            }, 
-            "name": "fieldResult"
+            "name": "campaign2"
         }, 
         {
             "type": "LIST", 
             "modifiers": [], 
             "references": [], 
             "location": {
-                "column": 30, 
+                "column": 21, 
                 "line": 13
             }, 
-            "name": "ple"
+            "name": "shows"
+        }, 
+        {
+            "type": "LIST", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 18, 
+                "line": 17
+            }, 
+            "name": "tables"
+        }, 
+        {
+            "type": "LIST", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 24, 
+                "line": 22
+            }, 
+            "name": "reservations"
         }, 
         {
             "type": "Integer", 
             "modifiers": [], 
             "references": [], 
             "location": {
-                "column": 18, 
-                "line": 15
+                "column": 15, 
+                "line": 25
+            }, 
+            "name": "i"
+        }, 
+        {
+            "type": "Integer", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 15, 
+                "line": 30
             }, 
             "name": "i"
         }, 
         {
             "type": "LIST", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 21, 
+                "line": 44
+            }, 
+            "name": "reservationsByCampaigns"
+        }, 
+        {
+            "type": "LIST", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 14, 
+                "line": 53
+            }, 
+            "name": "campaign1"
+        }, 
+        {
+            "type": "LIST", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 14, 
+                "line": 54
+            }, 
+            "name": "campaign2"
+        }, 
+        {
+            "type": "Set", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 11, 
+                "line": 61
+            }, 
+            "name": "campaigns"
+        }, 
+        {
+            "type": "LIST", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 21, 
+                "line": 63
+            }, 
+            "name": "reservationsByCampaigns"
+        }, 
+        {
+            "type": "AggregateResult", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 23, 
+                "line": 65
+            }, 
+            "name": "reservationsByCampaign"
+        }, 
+        {
+            "type": "LIST", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 14, 
+                "line": 83
+            }, 
+            "name": "campaign1"
+        }, 
+        {
+            "type": "Set", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 11, 
+                "line": 87
+            }, 
+            "name": "campaigns"
+        }, 
+        {
+            "type": "User", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 8, 
+                "line": 89
+            }, 
+            "name": "testTaker"
+        }, 
+        {
+            "type": "Showtime__c", 
             "modifiers": [], 
             "references": [], 
             "location": {
                 "column": 16, 
-                "line": 21
+                "line": 98
             }, 
-            "name": "sections"
+            "name": "show"
         }, 
         {
-            "type": "DescribeFieldResult", 
+            "type": "Table__c", 
             "modifiers": [], 
             "references": [], 
             "location": {
-                "column": 30, 
-                "line": 23
+                "column": 13, 
+                "line": 103
             }, 
-            "name": "fieldResult"
+            "name": "table"
         }, 
         {
-            "type": "LIST", 
+            "type": "Reservation__c", 
             "modifiers": [], 
             "references": [], 
             "location": {
-                "column": 30, 
-                "line": 24
+                "column": 19, 
+                "line": 108
             }, 
-            "name": "ple"
-        }, 
-        {
-            "type": "Integer", 
-            "modifiers": [], 
-            "references": [], 
-            "location": {
-                "column": 18, 
-                "line": 26
-            }, 
-            "name": "i"
+            "name": "reservation"
         }, 
         {
             "type": "LIST", 
             "modifiers": [], 
             "references": [], 
             "location": {
-                "column": 16, 
-                "line": 32
+                "column": 22, 
+                "line": 111
             }, 
-            "name": "locations"
+            "name": "reservationsByCampaigns"
         }, 
         {
-            "type": "DescribeFieldResult", 
+            "type": "AggregateResult", 
             "modifiers": [], 
             "references": [], 
             "location": {
-                "column": 30, 
-                "line": 34
+                "column": 24, 
+                "line": 113
             }, 
-            "name": "fieldResult"
-        }, 
-        {
-            "type": "LIST", 
-            "modifiers": [], 
-            "references": [], 
-            "location": {
-                "column": 30, 
-                "line": 35
-            }, 
-            "name": "ple"
-        }, 
-        {
-            "type": "Integer", 
-            "modifiers": [], 
-            "references": [], 
-            "location": {
-                "column": 18, 
-                "line": 37
-            }, 
-            "name": "i"
-        }, 
-        {
-            "type": "LIST", 
-            "modifiers": [], 
-            "references": [], 
-            "location": {
-                "column": 16, 
-                "line": 43
-            }, 
-            "name": "meals"
-        }, 
-        {
-            "type": "DescribeFieldResult", 
-            "modifiers": [], 
-            "references": [], 
-            "location": {
-                "column": 30, 
-                "line": 45
-            }, 
-            "name": "fieldResult"
-        }, 
-        {
-            "type": "LIST", 
-            "modifiers": [], 
-            "references": [], 
-            "location": {
-                "column": 30, 
-                "line": 46
-            }, 
-            "name": "ple"
-        }, 
-        {
-            "type": "Integer", 
-            "modifiers": [], 
-            "references": [], 
-            "location": {
-                "column": 18, 
-                "line": 48
-            }, 
-            "name": "i"
+            "name": "reservationsByCampaign"
         }
     ], 
-    "id": "01pq00000000bMYAAY", 
+    "id": "01pq00000000gE5AAI", 
     "methods": [
         {
             "modifiers": [
                 "private", 
-                "static", 
-                "testMethod"
+                "static"
             ], 
-            "name": "testReservationTriggerEnabled", 
+            "name": "setupTestData", 
             "parameters": [], 
             "visibility": "PRIVATE", 
             "references": [], 
             "location": {
-                "column": 33, 
-                "line": 4
+                "column": 22, 
+                "line": 5
             }, 
             "returnType": "void", 
             "type": null
@@ -207,13 +256,13 @@
                 "static", 
                 "testMethod"
             ], 
-            "name": "testTableLocations", 
+            "name": "testWithNoCampaigns", 
             "parameters": [], 
             "visibility": "PRIVATE", 
             "references": [], 
             "location": {
-                "column": 33, 
-                "line": 9
+                "column": 22, 
+                "line": 40
             }, 
             "returnType": "void", 
             "type": null
@@ -224,13 +273,13 @@
                 "static", 
                 "testMethod"
             ], 
-            "name": "testTableSections", 
+            "name": "testGetAllReservationsByCampaign", 
             "parameters": [], 
             "visibility": "PRIVATE", 
             "references": [], 
             "location": {
-                "column": 33, 
-                "line": 20
+                "column": 22, 
+                "line": 51
             }, 
             "returnType": "void", 
             "type": null
@@ -241,30 +290,13 @@
                 "static", 
                 "testMethod"
             ], 
-            "name": "testShowTimeLocations", 
+            "name": "testReferralCountForTestTaker", 
             "parameters": [], 
             "visibility": "PRIVATE", 
             "references": [], 
             "location": {
-                "column": 33, 
-                "line": 31
-            }, 
-            "returnType": "void", 
-            "type": null
-        }, 
-        {
-            "modifiers": [
-                "private", 
-                "static", 
-                "testMethod"
-            ], 
-            "name": "testShowTimeMeals", 
-            "parameters": [], 
-            "visibility": "PRIVATE", 
-            "references": [], 
-            "location": {
-                "column": 33, 
-                "line": 42
+                "column": 22, 
+                "line": 81
             }, 
             "returnType": "void", 
             "type": null
