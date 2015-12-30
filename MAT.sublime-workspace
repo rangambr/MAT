@@ -4,16 +4,116 @@
 		"selected_items":
 		[
 			[
+				"res",
+				"reservation"
+			],
+			[
+				"s",
+				"PUBLIC LOCATION_SANJOSE	String"
+			],
+			[
+				"me",
+				"PUBLIC MEAL_LUNCH	String"
+			],
+			[
+				"l",
+				"PUBLIC LOCATION_CHICAGO	String"
+			],
+			[
+				"se",
+				"PUBLIC SECTION_10	String"
+			],
+			[
+				"Test",
+				"TestDataFactory	[Custom Apex Class]"
+			],
+			[
+				"createsh",
+				"PUBLIC createShowTime(String name, Date showDate, String location, String meal) 	Showtime__c"
+			],
+			[
+				"show",
+				"showReservations"
+			],
+			[
+				"sele",
+				"SELECT"
+			],
+			[
+				"lo",
+				"PUBLIC LOCATION_BOSTON	String"
+			],
+			[
+				"Li",
+				"LIMIT"
+			],
+			[
+				"re",
+				"reservation"
+			],
+			[
+				"Date",
+				"Date__c"
+			],
+			[
+				"Me",
+				"Meal__c"
+			],
+			[
+				"Lo",
+				"Location__c"
+			],
+			[
+				"Shwo",
+				"Showtime__c	[Sobject Name]"
+			],
+			[
+				"rees",
+				"reservationTaker"
+			],
+			[
 				"Mat",
 				"MATAppConstants	[Custom Apex Class]"
 			],
 			[
-				"Re",
-				"Reservation"
+				"Tes",
+				"TestDataFactory	[Custom Apex Class]"
 			],
 			[
-				"re",
-				"reservationsByCampaign"
+				"reservat",
+				"reservationTaker"
+			],
+			[
+				"run",
+				"runAs(User_user_var)"
+			],
+			[
+				"Part",
+				"Party_Size__c"
+			],
+			[
+				"Sh",
+				"Showtime__c	[Sobject Name]"
+			],
+			[
+				"Whe",
+				"WHERE"
+			],
+			[
+				"Re",
+				"Reservation__c"
+			],
+			[
+				"createsho",
+				"PUBLIC createShowTimes(Integer numberOfRecords, Date showdate, String location, String meal) 	LIST"
+			],
+			[
+				"Te",
+				"TestDataFactory	[Custom Apex Class]"
+			],
+			[
+				"Show",
+				"Showtime__c	[Sobject Name]"
 			],
 			[
 				"cam",
@@ -22,10 +122,6 @@
 			[
 				"st",
 				"PUBLIC stopTest() 	void"
-			],
-			[
-				"res",
-				"reservationsByCampaigns"
 			],
 			[
 				"Reserv",
@@ -76,20 +172,12 @@
 				"reservationDeleted"
 			],
 			[
-				"show",
-				"showManager"
-			],
-			[
 				"whe",
 				"WHERE"
 			],
 			[
 				"Selec",
 				"SELECT"
-			],
-			[
-				"Show",
-				"Showtime__c"
 			],
 			[
 				"Section",
@@ -102,10 +190,6 @@
 			[
 				"Wh",
 				"WHERE"
-			],
-			[
-				"Sh",
-				"Showtime__c"
 			],
 			[
 				"SEle",
@@ -176,10 +260,6 @@
 				"MATAppConstants	[Custom Apex Class]"
 			],
 			[
-				"s",
-				"PUBLIC selectedSection	String"
-			],
-			[
 				"test",
 				"testmethod"
 			],
@@ -244,10 +324,6 @@
 				"selectedSection"
 			],
 			[
-				"se",
-				"sections"
-			],
-			[
 				"cur",
 				"currentReservations"
 			],
@@ -258,10 +334,6 @@
 			[
 				"m",
 				"maximum	(Integer)"
-			],
-			[
-				"l",
-				"location	(String)"
 			],
 			[
 				"out",
@@ -384,10 +456,6 @@
 				"createReservationsForCampaignBulk"
 			],
 			[
-				"lo",
-				"PUBLIC LOCATION_NY	String"
-			],
-			[
 				"R",
 				"Reservation__c	[Sobject Name]"
 			],
@@ -446,74 +514,6 @@
 			[
 				"REs",
 				"Reservation__c	[Sobject Name]"
-			],
-			[
-				"me",
-				"meal"
-			],
-			[
-				"sh",
-				"showdate"
-			],
-			[
-				"new",
-				"newMap"
-			],
-			[
-				"Que",
-				"QueryException	[Standard Apex Class]"
-			],
-			[
-				"ge",
-				"PUBLIC getMessage() 	String"
-			],
-			[
-				"Q",
-				"QueryException	[Standard Apex Class]"
-			],
-			[
-				"camp",
-				"campaignIds"
-			],
-			[
-				"ref",
-				"Referred_By__c"
-			],
-			[
-				"cou",
-				"campaignReferralCounter"
-			],
-			[
-				"Reservat",
-				"ReservationTriggerHelper	[Custom Apex Class]"
-			],
-			[
-				"MATAp",
-				"MATAppSettings	[Custom Apex Class]"
-			],
-			[
-				"Test",
-				"TestDataFactory	[Custom Apex Class]"
-			],
-			[
-				"Rese",
-				"ReservationTriggerHelper	[Custom Apex Class]"
-			],
-			[
-				"u",
-				"undelete"
-			],
-			[
-				"is",
-				"isEmpty"
-			],
-			[
-				"Ref",
-				"Referred_By__c"
-			],
-			[
-				"si",
-				"PUBLIC size() 	Integer"
 			]
 		]
 	},
@@ -528,42 +528,18 @@
 			}
 		},
 		{
-			"file": "src/classes/ReservationTriggerHelperTest.cls",
-			"settings":
-			{
-				"buffer_size": 23270,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "src/classes/ShowtimeManagerTest.cls",
-			"settings":
-			{
-				"buffer_size": 14166,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "src/classes/ReservationCampaignHelper.cls",
-			"settings":
-			{
-				"buffer_size": 1022,
-				"line_ending": "Unix"
-			}
-		},
-		{
 			"file": "src/classes/ShowTimeManager.cls",
 			"settings":
 			{
-				"buffer_size": 9774,
+				"buffer_size": 10736,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "src/classes/MATAppConstants.cls",
+			"file": "src/triggers/ReservationTrigger.trigger",
 			"settings":
 			{
-				"buffer_size": 1023,
+				"buffer_size": 1241,
 				"line_ending": "Unix"
 			}
 		}
@@ -603,29 +579,28 @@
 		"/Users/rangamedagoda/Documents/workspaces/mavensmate/MAT",
 		"/Users/rangamedagoda/Documents/workspaces/mavensmate/MAT/src",
 		"/Users/rangamedagoda/Documents/workspaces/mavensmate/MAT/src/classes",
-		"/Users/rangamedagoda/Documents/workspaces/mavensmate/MAT/src/components",
-		"/Users/rangamedagoda/Documents/workspaces/mavensmate/MAT/src/pages",
 		"/Users/rangamedagoda/Documents/workspaces/mavensmate/MAT/src/triggers"
 	],
 	"file_history":
 	[
-		"/Users/rangamedagoda/Documents/workspaces/mavensmate/MAT/src/classes/ReservationCampaignHelperTest.cls",
-		"/Users/rangamedagoda/Documents/workspaces/mavensmate/MAT/src/classes/ReservationSectionChartTest.cls",
-		"/Users/rangamedagoda/Documents/workspaces/mavensmate/MAT/src/classes/TestDataFactory.cls",
-		"/Users/rangamedagoda/Documents/workspaces/mavensmate/MAT/src/classes/ReservationTriggerHelperTest.cls-meta.xml",
 		"/Users/rangamedagoda/Documents/workspaces/mavensmate/MAT/src/classes/ShowtimeManagerTest.cls",
 		"/Users/rangamedagoda/Documents/workspaces/mavensmate/MAT/src/classes/ShowTimeManager.cls",
-		"/Users/rangamedagoda/Documents/workspaces/mavensmate/MAT/src/classes/ReservationTriggerHelper.cls",
-		"/Users/rangamedagoda/Documents/workspaces/mavensmate/MAT/src/classes/ReservationTriggerHelperTest.cls",
 		"/Users/rangamedagoda/Documents/workspaces/mavensmate/MAT/src/pages/ShowTimeManager.page",
+		"/Users/rangamedagoda/Documents/workspaces/mavensmate/MAT/src/classes/ReservationTriggerHelper.cls",
 		"/Users/rangamedagoda/Documents/workspaces/mavensmate/MAT/src/classes/MATAppSettingsTest.cls",
+		"/Users/rangamedagoda/Documents/workspaces/mavensmate/MAT/src/triggers/ReservationTrigger.trigger",
+		"/Users/rangamedagoda/Documents/workspaces/mavensmate/MAT/src/classes/ReservationCampaignHelperTest.cls",
+		"/Users/rangamedagoda/Documents/workspaces/mavensmate/MAT/src/classes/ReservationCampaignHelper.cls",
+		"/Users/rangamedagoda/Documents/workspaces/mavensmate/MAT/src/classes/ReservationTriggerHelperTest.cls",
+		"/Users/rangamedagoda/Documents/workspaces/mavensmate/MAT/src/classes/MATAppConstants.cls",
+		"/Users/rangamedagoda/Documents/workspaces/mavensmate/MAT/src/classes/TestDataFactory.cls",
+		"/Users/rangamedagoda/Documents/workspaces/mavensmate/MAT/src/classes/ReservationSectionChartTest.cls",
+		"/Users/rangamedagoda/Documents/workspaces/mavensmate/MAT/src/classes/ReservationTriggerHelperTest.cls-meta.xml",
 		"/Users/rangamedagoda/Desktop/ShowtimeManagerStyles.css",
 		"/Users/rangamedagoda/Documents/workspaces/mavensmate/MAT/src/classes/ReservationSectionChart.cls",
 		"/Users/rangamedagoda/Documents/workspaces/mavensmate/MAT/src/classes/ReservationChartTest.cls",
 		"/Users/rangamedagoda/Library/Application Support/Sublime Text 3/Packages/User/mavensmate.sublime-settings",
 		"/Users/rangamedagoda/Documents/workspaces/mavensmate/MAT/src/components/ReservationSectionChart.component",
-		"/Users/rangamedagoda/Documents/workspaces/mavensmate/MAT/src/triggers/ReservationTrigger.trigger",
-		"/Users/rangamedagoda/Documents/workspaces/mavensmate/MAT/src/classes/MATAppConstants.cls",
 		"/Users/rangamedagoda/Documents/workspaces/mavensmate/MAT/src/classes/MATAppSettings.cls",
 		"/Users/rangamedagoda/Documents/workspaces/mavensmate/MAT/src/classes/BatchReferralCounter.cls",
 		"/Users/rangamedagoda/Documents/workspaces/mavensmate/MAT/.gitignore",
@@ -735,8 +710,7 @@
 		"/Users/rangamedagoda/Documents/workspaces/mavensmate/MaitlandAudit/src/pages/AssociateTestPlansToObjectives.page",
 		"/Users/rangamedagoda/Documents/workspaces/mavensmate/MaitlandAudit/src/classes/AssessTestPlanControlsTest.cls",
 		"/Users/rangamedagoda/Documents/workspaces/mavensmate/MaitlandAuditDev/src/classes/AssoicateTestPlansToObjectives.cls",
-		"/Users/rangamedagoda/Documents/workspaces/mavensmate/MaitlandAuditDev/src/classes/AuditManagerConstants.cls-meta.xml",
-		"/Users/rangamedagoda/Documents/workspaces/mavensmate/XMetric/src/profiles/Admin.profile"
+		"/Users/rangamedagoda/Documents/workspaces/mavensmate/MaitlandAuditDev/src/classes/AuditManagerConstants.cls-meta.xml"
 	],
 	"find":
 	{
@@ -758,6 +732,11 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"party_size",
+			"save",
+			"testCalculateTotalRevenueOnBulkUpdate",
+			"undelete",
+			"createReservation",
 			"tooling",
 			"limit",
 			"debu",
@@ -880,12 +859,7 @@
 			"insert",
 			"approver",
 			"addRecommendation",
-			"tooling",
-			"processCheckValue",
-			"approver",
-			"app",
-			"status",
-			"test_plan"
+			"tooling"
 		],
 		"highlight": false,
 		"in_selection": false,
@@ -932,7 +906,7 @@
 	"groups":
 	[
 		{
-			"selected": 4,
+			"selected": 0,
 			"sheets":
 			[
 				{
@@ -948,8 +922,8 @@
 						"selection":
 						[
 							[
-								4841,
-								4841
+								6686,
+								6686
 							]
 						],
 						"settings":
@@ -958,48 +932,49 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 237.0,
+						"translation.y": 2071.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 5,
+					"stack_index": 0,
 					"type": "text"
 				},
 				{
 					"buffer": 1,
-					"file": "src/classes/ReservationTriggerHelperTest.cls",
+					"file": "src/classes/ShowTimeManager.cls",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 23270,
+						"buffer_size": 10736,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								20968,
-								20968
+								6574,
+								6590
 							]
 						],
 						"settings":
 						{
 							"syntax": "Packages/MavensMate/sublime/lang/Apex.tmLanguage",
-							"translate_tabs_to_spaces": false
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 8175.0,
+						"translation.y": 1986.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 4,
+					"stack_index": 1,
 					"type": "text"
 				},
 				{
 					"buffer": 2,
-					"file": "src/classes/ShowtimeManagerTest.cls",
-					"semi_transient": false,
+					"file": "src/triggers/ReservationTrigger.trigger",
+					"semi_transient": true,
 					"settings":
 					{
-						"buffer_size": 14166,
+						"buffer_size": 1241,
 						"regions":
 						{
 						},
@@ -1015,99 +990,11 @@
 							"syntax": "Packages/MavensMate/sublime/lang/Apex.tmLanguage",
 							"translate_tabs_to_spaces": false
 						},
-						"translation.x": 8.0,
-						"translation.y": 1323.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 3,
-					"type": "text"
-				},
-				{
-					"buffer": 3,
-					"file": "src/classes/ReservationCampaignHelper.cls",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 1022,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								742,
-								742
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/MavensMate/sublime/lang/Apex.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 2,
-					"type": "text"
-				},
-				{
-					"buffer": 4,
-					"file": "src/classes/ShowTimeManager.cls",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 9774,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								6855,
-								6855
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/MavensMate/sublime/lang/Apex.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 0,
-					"type": "text"
-				},
-				{
-					"buffer": 5,
-					"file": "src/classes/MATAppConstants.cls",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 1023,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								642,
-								654
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/MavensMate/sublime/lang/Apex.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 1,
 					"type": "text"
 				}
 			]
@@ -1194,7 +1081,7 @@
 	"show_open_files": true,
 	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 332.0,
+	"side_bar_width": 286.0,
 	"status_bar_visible": true,
 	"template_settings":
 	{

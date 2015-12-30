@@ -159,6 +159,13 @@ public with sharing class ShowTimeManager {
                     tableReservation.get(tableId).Showtime__c = showtime.Id;
                 }
                 reservationsToUpsert.add(tableReservation.get(tableId));
+            } else if(tableReservation.get(tableId).Party_Size__c != null &&
+                tableReservation.get(tableId).Party_Size__c < 0){
+                //catch any exception while dml - future validation rules etc.
+                ApexPages.Message errormsg = new ApexPages.Message(ApexPages.Severity.ERROR, 
+                Label.Party_Size_Error);
+                ApexPages.addMessage(errormsg);
+                return null;
             }
 
             if(tableReservation.get(tableId).Party_Size__c == 0
